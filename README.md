@@ -1,4 +1,4 @@
-# 📜 kube-scripts
+# 📜 k8s-scripts
 [![CI](https://github.com/mmontes11/kube-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/mmontes11/kube-scripts/actions/workflows/ci.yml)
 [![Release](https://github.com/mmontes11/kube-scripts/actions/workflows/release.yml/badge.svg)](https://github.com/mmontes11/kube-scripts/actions/workflows/release.yml)
 
