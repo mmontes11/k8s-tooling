@@ -133,8 +133,8 @@ K9S_PLUGINS=(
   watch_events
 )
 K9S_PLUGIN_FILE=plugin.yml
+mkdir -p $USER_HOME/.config/k9s
 K9S_PLUGIN_CONFIG=$USER_HOME/.config/k9s/plugin.yml
-rm $K9S_PLUGIN_CONFIG
 for i in "${!K9S_PLUGINS[@]}"; do
   K9S_PLUGIN="${K9S_PLUGINS[$i]}" 
   K9S_PLUGIN_URL=https://raw.githubusercontent.com/derailed/k9s/master/plugins/$K9S_PLUGIN.yml
