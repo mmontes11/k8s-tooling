@@ -1,4 +1,7 @@
 # 📜 kube-scripts
+[![CI](https://github.com/mmontes11/kube-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/mmontes11/kube-scripts/actions/workflows/ci.yml)
+[![Release](https://github.com/mmontes11/kube-scripts/actions/workflows/release.yml/badge.svg)](https://github.com/mmontes11/kube-scripts/actions/workflows/release.yml)
+
 Install Kubernetes tooling with a single command.
 
 ### Usage
