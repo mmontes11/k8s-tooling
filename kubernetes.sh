@@ -131,6 +131,10 @@ curl -Lo $USER_HOME/.config/k9s/skin.yml $K9S_THEME_URL
 mkdir -p $USER_HOME/.config/k9s
 K9S_PLUGIN_CONFIG=$USER_HOME/.config/k9s/plugin.yml
 
+if [ -f "$K9S_PLUGIN_CONFIG" ]; then
+  rm "$K9S_PLUGIN_CONFIG"
+fi
+
 function install_k9s_plugin() {
   K9S_PLUGIN_URL="$1"
   K9S_PLUGIN_CONFIG="$2"
