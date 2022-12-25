@@ -1,0 +1,12 @@
+plugin:
+  reconcile-helmrepo:
+    shortCut: Shift-R
+    confirm: false
+    description: Flux reconcile
+    scopes:
+      - helmrepositories
+    command: bash
+    background: false
+    args:
+      - -c
+      - "flux --context $CONTEXT reconcile source helm -n $NAMESPACE $NAME |& less"

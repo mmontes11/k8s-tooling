@@ -128,17 +128,28 @@ K9S_THEME=${K9S_THEME:-nord}
 K9S_THEME_URL=https://raw.githubusercontent.com/derailed/k9s/$K9S_VERSION/skins/$K9S_THEME.yml
 curl -Lo $USER_HOME/.config/k9s/skin.yml $K9S_THEME_URL
 
-K9S_PLUGINS=(
-  flux
-  watch_events
-)
-K9S_PLUGIN_FILE=plugin.yml
 mkdir -p $USER_HOME/.config/k9s
 K9S_PLUGIN_CONFIG=$USER_HOME/.config/k9s/plugin.yml
-for i in "${!K9S_PLUGINS[@]}"; do
-  K9S_PLUGIN="${K9S_PLUGINS[$i]}" 
-  K9S_PLUGIN_URL=https://raw.githubusercontent.com/derailed/k9s/master/plugins/$K9S_PLUGIN.yml
+
+function install_k9s_plugin() {
+  K9S_PLUGIN_URL="$1"
+  K9S_PLUGIN_CONFIG="$2"
+  K9S_PLUGIN_FILE=plugin.yml
+
   curl -Lo $K9S_PLUGIN_FILE $K9S_PLUGIN_URL
   cat $K9S_PLUGIN_FILE >> $K9S_PLUGIN_CONFIG
+  rm $K9S_PLUGIN_FILE
+}
+K9S_PLUGINS=(
+  # oficial
+  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/flux.yml"
+  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/watch_events.yml"
+  # custom
+  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/flux.yaml"
+  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/cert-manager.yaml"
+)
+
+for i in "${!K9S_PLUGINS[@]}"; do
+  K9S_PLUGIN_URL="${K9S_PLUGINS[$i]}" 
+  install_k9s_plugin "$K9S_PLUGIN_URL" "$K9S_PLUGIN_CONFIG"
 done
-rm $K9S_PLUGIN_FILE
