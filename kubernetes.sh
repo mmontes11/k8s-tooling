@@ -90,6 +90,11 @@ KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v3.7.0}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
 
+# operator-sdk
+OPERATOR_SDK_VERSION=${OPERATOR_SDK_VERSION:-v1.26.0}
+OPERATOR_SDK_URL=https://github.com/operator-framework/operator-sdk/releases/download/$OPERATOR_SDK_VERSION/operator-sdk_linux_$ARCH
+install_bin operator-sdk $OPERATOR_SDK_URL
+
 # cilium
 CILIUM_VERSION=${CILIUM_VERSION:-v0.12.11}
 CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/$CILIUM_VERSION/cilium-linux-$ARCH.tar.gz}
