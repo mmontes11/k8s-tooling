@@ -116,16 +116,8 @@ KUBESEAL_URL=https://github.com/bitnami-labs/sealed-secrets/releases/download/v$
 install_tar kubeseal $KUBESEAL_URL
 
 # k9s
-function get_k9s_arch() {
-  ARCH=$1
-  if [ $ARCH == "amd64" ]; then
-    echo "x86_64"
-  else
-    echo $ARCH
-  fi
-}
-K9S_VERSION=${K9S_VERSION:-v0.26.7}
-K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$(get_k9s_arch $ARCH).tar.gz
+K9S_VERSION=${K9S_VERSION:-v0.27.2}
+K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 mkdir -p $USER_HOME/.config/k9s
 
@@ -156,6 +148,7 @@ K9S_PLUGINS=(
   # custom
   "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/flux.yaml"
   "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/cert-manager.yaml"
+  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/openssl.yaml"
 )
 
 for i in "${!K9S_PLUGINS[@]}"; do

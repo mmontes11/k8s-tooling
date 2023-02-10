@@ -1,0 +1,25 @@
+# k9s openssl plugin by mmontes11. See: https://github.com/mmontes11/k8s-scripts/tree/main/plugins
+plugin:
+  secret-openssl-ca:
+    shortCut: Ctrl-O
+    confirm: false
+    description: Openssl ca.crt
+    scopes:
+      - secrets
+    command: bash
+    background: false
+    args:
+      - -c
+      - kubectl get secret --context $CONTEXT -n $NAMESPACE $NAME -o json | jq -r ".data.\"ca.crt\"" | base64 -d > /tmp/ca.crt && openssl storeutl -noout -text -certs /tmp/ca.crt |& less
+
+  secret-openssl-tls:
+    shortCut: Shift-O
+    confirm: false
+    description: Openssl tls.crt
+    scopes:
+      - secrets
+    command: bash
+    background: false
+    args:
+      - -c
+      - kubectl get secret --context $CONTEXT -n $NAMESPACE $NAME -o json | jq -r ".data.\"tls.crt\"" | base64 -d > /tmp/tls.crt && openssl storeutl -noout -text -certs /tmp/tls.crt |& less
