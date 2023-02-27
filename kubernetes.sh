@@ -101,8 +101,8 @@ CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/
 install_tar cilium $CILIUM_URL
 
 # flux
-FLUX_VERSION=${FLUX_VERSION:-v0.37.0}
-FLUX_URL=https://github.com/fluxcd/flux2/releases/download/$FLUX_VERSION/flux_0.37.0_linux_$ARCH.tar.gz
+FLUX_VERSION=${FLUX_VERSION:-v0.40.1}
+FLUX_URL=https://github.com/fluxcd/flux2/releases/download/$FLUX_VERSION/flux_0.40.1_linux_$ARCH.tar.gz
 install_tar flux $FLUX_URL
 
 # cert-manager
