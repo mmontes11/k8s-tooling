@@ -65,7 +65,7 @@ KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 # helm
-HELM_VERSION=${HELM_VERSION:-v3.10.2}
+HELM_VERSION=${HELM_VERSION:-v3.11.2}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
@@ -77,7 +77,7 @@ KUBENS_URL=https://github.com/ahmetb/kubectx/releases/download/$KUBECTX_VERSION/
 install_bin kubens $KUBENS_URL
 
 # kind
-KIND_VERSION=${KIND_VERSION:-v0.17.0}
+KIND_VERSION=${KIND_VERSION:-v0.18.0}
 KIND_URL=https://kind.sigs.k8s.io/dl/$KIND_VERSION/kind-linux-$ARCH
 install_bin kind $KIND_URL
 
@@ -116,7 +116,7 @@ KUBESEAL_URL=https://github.com/bitnami-labs/sealed-secrets/releases/download/v$
 install_tar kubeseal $KUBESEAL_URL
 
 # k9s
-K9S_VERSION=${K9S_VERSION:-v0.27.2}
+K9S_VERSION=${K9S_VERSION:-v0.27.3}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 mkdir -p $USER_HOME/.config/k9s
