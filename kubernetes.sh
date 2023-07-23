@@ -101,8 +101,8 @@ CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/
 install_tar cilium $CILIUM_URL
 
 # flux
-FLUX_VERSION=${FLUX_VERSION:-v0.40.1}
-FLUX_URL=https://github.com/fluxcd/flux2/releases/download/$FLUX_VERSION/flux_0.40.1_linux_$ARCH.tar.gz
+FLUX_VERSION=${FLUX_VERSION:-2.0.1}
+FLUX_URL=https://github.com/fluxcd/flux2/releases/download/v${FLUX_VERSION}/flux_${FLUX_VERSION}_linux_$ARCH.tar.gz
 install_tar flux $FLUX_URL
 
 # cert-manager
@@ -115,8 +115,13 @@ KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.19.2}
 KUBESEAL_URL=https://github.com/bitnami-labs/sealed-secrets/releases/download/v$KUBESEAL_VERSION/kubeseal-$KUBESEAL_VERSION-linux-$ARCH.tar.gz
 install_tar kubeseal $KUBESEAL_URL
 
+# vcluster
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.15.2}
+KUBEBUILDER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
+install_bin vcluster $KUBEBUILDER_URL
+
 # k9s
-K9S_VERSION=${K9S_VERSION:-v0.27.3}
+K9S_VERSION=${K9S_VERSION:-v0.27.4}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 mkdir -p $USER_HOME/.config/k9s
