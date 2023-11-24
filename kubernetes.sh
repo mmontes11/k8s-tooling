@@ -65,7 +65,7 @@ KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 # helm
-HELM_VERSION=${HELM_VERSION:-v3.13.0}
+HELM_VERSION=${HELM_VERSION:-v3.13.2}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
@@ -82,11 +82,11 @@ KIND_URL=https://kind.sigs.k8s.io/dl/$KIND_VERSION/kind-linux-$ARCH
 install_bin kind $KIND_URL
 
 # kustomize
-KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.1.1/kustomize_v5.1.1_linux_$ARCH.tar.gz}
+KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.2.1/kustomize_v5.2.1_linux_$ARCH.tar.gz}
 install_tar kustomize $KUSMTOMIZE_URL
 
 # kubebuilder
-KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v3.12.0}
+KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v3.13.0}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
 
@@ -95,33 +95,50 @@ OPERATOR_SDK_VERSION=${OPERATOR_SDK_VERSION:-v1.32.0}
 OPERATOR_SDK_URL=https://github.com/operator-framework/operator-sdk/releases/download/$OPERATOR_SDK_VERSION/operator-sdk_linux_$ARCH
 install_bin operator-sdk $OPERATOR_SDK_URL
 
+# openshift-local via code-ready-containers
+echo "Installing 'code-ready-containers'"
+CRC_VERSION=2.29.0
+CRC_URL=https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/crc/$CRC_VERSION/crc-linux-$ARCH.tar.xz
+curl -Lo /tmp/crc.tar.xz $CRC_URL
+tar -C /tmp -xf /tmp/crc.tar.xz
+mv /tmp/crc-linux-$CRC_VERSION-$ARCH/crc /usr/local/bin
+chmod +x /usr/local/bin/crc
+
+# oc
+OC_URL=https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest-4.9/openshift-client-linux-4.9.59.tar.gz
+install_tar oc $OC_URL
+
+# opm
+OPM_URL=https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest-4.9/opm-linux-4.9.59.tar.gz
+install_tar opm $OPM_URL
+
 # cilium
 CILIUM_VERSION=${CILIUM_VERSION:-v0.15.10}
 CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/$CILIUM_VERSION/cilium-linux-$ARCH.tar.gz}
 install_tar cilium $CILIUM_URL
 
 # flux
-FLUX_VERSION=${FLUX_VERSION:-2.1.1}
+FLUX_VERSION=${FLUX_VERSION:-2.1.2}
 FLUX_URL=https://github.com/fluxcd/flux2/releases/download/v${FLUX_VERSION}/flux_${FLUX_VERSION}_linux_$ARCH.tar.gz
 install_tar flux $FLUX_URL
 
 # cert-manager
-CM_VERSION=${CM_VERSION:-v1.13.1}
+CM_VERSION=${CM_VERSION:-v1.13.2}
 CM_URL=https://github.com/cert-manager/cert-manager/releases/download/$CM_VERSION/cmctl-linux-$ARCH.tar.gz
 install_tar cmctl $CM_URL
 
 # kubeseal
-KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.24.1}
+KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.24.4}
 KUBESEAL_URL=https://github.com/bitnami-labs/sealed-secrets/releases/download/v$KUBESEAL_VERSION/kubeseal-$KUBESEAL_VERSION-linux-$ARCH.tar.gz
 install_tar kubeseal $KUBESEAL_URL
 
 # vcluster
-VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.16.2}
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.17.1}
 KUBEBUILDER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $KUBEBUILDER_URL
 
 # k9s
-K9S_VERSION=${K9S_VERSION:-v0.27.4}
+K9S_VERSION=${K9S_VERSION:-v0.28.2}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 mkdir -p $USER_HOME/.config/k9s
