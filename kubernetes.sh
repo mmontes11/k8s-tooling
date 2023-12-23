@@ -137,6 +137,7 @@ VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.17.1}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 
+# mc
 MC_URL=https://dl.min.io/client/mc/release/linux-amd64/mc
 install_bin mc $MC_URL
 
