@@ -134,11 +134,14 @@ install_tar kubeseal $KUBESEAL_URL
 
 # vcluster
 VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.17.1}
-KUBEBUILDER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
-install_bin vcluster $KUBEBUILDER_URL
+VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
+install_bin vcluster $VCLUSTER_URL
+
+MC_URL=https://dl.min.io/client/mc/release/linux-amd64/mc
+install_bin mc $MC_URL
 
 # k9s
-K9S_VERSION=${K9S_VERSION:-v0.28.2}
+K9S_VERSION=${K9S_VERSION:-v0.29.1}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 mkdir -p $USER_HOME/.config/k9s
