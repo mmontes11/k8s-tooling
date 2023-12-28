@@ -17,7 +17,7 @@ jobs:
 
       - name: Fetch tags
         run: git fetch --force --tags
-
+      
       - name: Prepare
         id: prep
         run: |
@@ -32,18 +32,18 @@ jobs:
           if [ -f "${RELEASE_HEADER_TMPL}" ]; then
             RELEASE_ARGS="${RELEASE_ARGS} --release-header-tmpl=${RELEASE_HEADER_TMPL}"
           else
-            RELEASE_ARGS="${RELEASE_ARGS} --release-header-tmpl=docs/releases/RELEASE_HEADER.md.gotmpl
+            RELEASE_ARGS="${RELEASE_ARGS} --release-header-tmpl=docs/releases/RELEASE_HEADER.md.gotmpl"
           fi
           if [ -f "${RELEASE_FOOTER_TMPL}" ]; then
             RELEASE_ARGS="${RELEASE_ARGS} --release-footer-tmpl=${RELEASE_FOOTER_TMPL}"
           else
-            RELEASE_ARGS="${RELEASE_ARGS} --release-footer-tmpl=docs/releases/RELEASE_FOOTER.md.gotmpl
+            RELEASE_ARGS="${RELEASE_ARGS} --release-footer-tmpl=docs/releases/RELEASE_FOOTER.md.gotmpl"
           fi
           
           echo "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
           echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
           echo "RELEASE_ARGS=${RELEASE_ARGS}" >> $GITHUB_OUTPUT
-
+      
       - name: GoReleaser
         uses: goreleaser/goreleaser-action@v4
         with:
