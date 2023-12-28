@@ -18,10 +18,30 @@ jobs:
       - name: Fetch tags
         run: git fetch --force --tags
 
+      - name: Prepare
+        id: prep
+        run: |
+          VERSION=sha-${GITHUB_SHA::8}
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF/refs\/tags\//}
+          fi
+          RELEASE_ARGS=release
+          RELEASE_HEADER_TMPL=docs/releases/RELEASE_${VERSION}_HEADER.md.gotmpl
+          RELEASE_FOOTER_TMPL=docs/releases/RELEASE_${VERSION}_FOOTER.md.gotmpl
+          if [ -f "${RELEASE_HEADER_TMPL}" ]; then
+            RELEASE_ARGS="${RELEASE_ARGS} --release-header-tmpl=${RELEASE_HEADER_TMPL}"
+          fi
+          if [ -f "${RELEASE_FOOTER_TMPL}" ]; then
+            RELEASE_ARGS="${RELEASE_ARGS} --release-footer-tmpl=${RELEASE_FOOTER_TMPL}"
+          fi
+          echo "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
+          echo "RELEASE_ARGS=${RELEASE_ARGS}" >> $GITHUB_OUTPUT
+
       - name: GoReleaser
-        uses: goreleaser/goreleaser-action@v3
+        uses: goreleaser/goreleaser-action@v4
         with:
           version: latest
-          args: release
+          args: ${{ steps.prep.outputs.RELEASE_ARGS }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
