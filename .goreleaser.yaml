@@ -1,2 +1,4 @@
+changelog:
+  use: github-native
 builds:
 - skip: true
