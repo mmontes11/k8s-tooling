@@ -138,8 +138,14 @@ VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VER
 install_bin vcluster $VCLUSTER_URL
 
 # mc
-MC_URL=https://dl.min.io/client/mc/release/linux-amd64/mc
+MC_URL=https://dl.min.io/client/mc/release/linux-$ARCH/mc
 install_bin mc $MC_URL
+
+# talos
+TALOS_VERSION=${TALOS_VERSION:-v1.6.7}
+TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
+echo $TALOS_URL
+install_bin talosctl $TALOS_URL
 
 # k9s
 K9S_VERSION=${K9S_VERSION:-v0.29.1}
