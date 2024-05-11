@@ -22,6 +22,19 @@ jobs:
       - name: Test override
         run: sudo KUBECTL_VERSION=v1.25.4 bash kubernetes.sh
 
+  test-openshift:
+    name: Test Openshift
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test
+        run: sudo bash openshift.sh
+
+      - name: Test override
+        run: sudo OPERATOR_SDK_VERSION=v1.34.1 bash openshift.sh
+
   test-k9s:
     name: Test k9s
     runs-on: ubuntu-latest
