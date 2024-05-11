@@ -10,8 +10,7 @@ plugins:
     background: false
     args:
       - -c
-      - kubectl get secret --context $CONTEXT -n $NAMESPACE $NAME -o json | jq -r ".data.\"ca.crt\"" | base64 -d > /tmp/ca.crt && openssl storeutl -noout -text -certs /tmp/ca.crt |& less
-
+      - kubectl get secret --context $CONTEXT -n $NAMESPACE $NAME -o json | jq -r ".data.\"ca.crt\"" | base64 -d | openssl storeutl -noout -text -certs /dev/stdin |& less
   secret-openssl-tls:
     shortCut: Shift-O
     confirm: false
@@ -22,4 +21,4 @@ plugins:
     background: false
     args:
       - -c
-      - kubectl get secret --context $CONTEXT -n $NAMESPACE $NAME -o json | jq -r ".data.\"tls.crt\"" | base64 -d > /tmp/tls.crt && openssl storeutl -noout -text -certs /tmp/tls.crt |& less
+      - kubectl get secret --context $CONTEXT -n $NAMESPACE $NAME -o json | jq -r ".data.\"tls.crt\"" | base64 -d | openssl storeutl -noout -text -certs /dev/stdin |& less
