@@ -146,6 +146,11 @@ TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/t
 echo $TALOS_URL
 install_bin talosctl $TALOS_URL
 
+# yq
+YQ_VERSION=v4.43.1
+YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
+install_bin yq $YQ_URL
+
 # k9s
 K9S_VERSION=${K9S_VERSION:-v0.29.1}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
