@@ -15,7 +15,7 @@ fi
 # yq
 echo "Installing yq..."
 
-YQ_VERSION=v4.43.1
+YQ_VERSION=${YQ_VERSION:-v4.43.1}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 
 if ! command -v yq &> /dev/null; then

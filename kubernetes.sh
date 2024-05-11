@@ -78,7 +78,7 @@ echo $TALOS_URL
 install_bin talosctl $TALOS_URL
 
 # yq
-YQ_VERSION=v4.43.1
+YQ_VERSION=${YQ_VERSION:-v4.43.1}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 install_bin yq $YQ_URL
 
