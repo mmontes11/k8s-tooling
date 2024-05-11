@@ -71,6 +71,8 @@ mkdir -p "$K9S_CTX/clusters"
 git clone https://github.com/derailed/k9s.git
 cp k9s/skins/* "$K9S_CONFIG/skins"
 rm -rf k9s
+cp .k9s/skins/* "$K9S_CONFIG/skins"
+
 
 K9S_PLUGINS=(
   # oficial

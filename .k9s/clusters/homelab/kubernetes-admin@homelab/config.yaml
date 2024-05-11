@@ -1,6 +1,6 @@
 k9s:
   cluster: homelab
-  skin: narsingh
+  skin: homelab
   namespace:
     active: default
     lockFavorites: false
