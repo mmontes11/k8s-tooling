@@ -41,11 +41,11 @@ function get_user_home() {
 
 function get_architecture() {
   ARCH=$(uname -m)
-  if [ $ARCH == "x86_64" ]; then
+  if [ $ARCH = "x86_64" ]; then
     echo "amd64"
-  elif [ $ARCH == "aarch64" ]; then
+  elif [ $ARCH = "aarch64" ]; then
     echo "arm64"
-  elif [[ $ARCH == arm* ]]; then
+  elif [[ $ARCH = "arm" ]]; then
     echo "arm"
   else
     echo ""
