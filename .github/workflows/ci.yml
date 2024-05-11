@@ -9,15 +9,28 @@ on:
       - "**"
 
 jobs:
-  test:
+  test-kubernetes:
     name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Test
         run: sudo bash kubernetes.sh
 
       - name: Test override version
         run: sudo KUBECTL_VERSION=v1.25.4 bash kubernetes.sh
+
+  test-k9s:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test
+        run: sudo bash k9s.sh
+
+      - name: Test k9s version
+        run: sudo K9S_VERSION=v0.32.4 bash k9s.sh
