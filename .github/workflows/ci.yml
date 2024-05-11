@@ -19,7 +19,7 @@ jobs:
       - name: Test
         run: sudo bash kubernetes.sh
 
-      - name: Test override version
+      - name: Test override
         run: sudo KUBECTL_VERSION=v1.25.4 bash kubernetes.sh
 
   test-k9s:
@@ -32,5 +32,5 @@ jobs:
       - name: Test
         run: sudo bash k9s.sh -y
 
-      - name: Test k9s version
-        run: sudo K9S_VERSION=v0.32.4 bash k9s.sh
+      - name: Test k9s override
+        run: sudo K9S_VERSION=v0.32.4 bash k9s.sh -y
