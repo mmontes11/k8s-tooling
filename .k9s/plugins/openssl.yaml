@@ -1,4 +1,4 @@
-# k9s openssl plugin by mmontes11. See: https://github.com/mmontes11/k8s-scripts/tree/main/plugins
+# Inspect certificate chains with openssl.
 plugins:
   secret-openssl-ca:
     shortCut: Ctrl-O

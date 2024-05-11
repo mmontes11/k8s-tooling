@@ -1,16 +1,6 @@
-# k9s cert-manager plugin by mmontes11. See: https://github.com/mmontes11/k8s-scripts/tree/main/plugins
+# Manage cert-manager Certificate resouces via cmctl.
+# See: https://github.com/cert-manager/cmctl
 plugins:
-  secret-inspect:
-    shortCut: Shift-I
-    confirm: false
-    description: Inspect secret
-    scopes:
-      - secrets
-    command: bash
-    background: false
-    args:
-      - -c
-      - "cmctl inspect secret --context $CONTEXT -n $NAMESPACE $NAME |& less"
   cert-status:
     shortCut: Shift-S
     confirm: false
@@ -33,3 +23,14 @@ plugins:
     args:
       - -c
       - "cmctl renew --context $CONTEXT -n $NAMESPACE $NAME |& less"
+  secret-inspect:
+    shortCut: Shift-I
+    confirm: false
+    description: Inspect secret
+    scopes:
+      - secrets
+    command: bash
+    background: false
+    args:
+      - -c
+      - "cmctl inspect secret --context $CONTEXT -n $NAMESPACE $NAME |& less"
