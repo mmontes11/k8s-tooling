@@ -76,6 +76,7 @@ cp .k9s/skins/* "$K9S_CONFIG/skins"
 
 K9S_PLUGINS=(
   # oficial
+  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/debug-container.yaml"
   "https://raw.githubusercontent.com/derailed/k9s/master/plugins/watch-events.yaml"
   # custom
   "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/.k9s/plugins/flux.yaml"
