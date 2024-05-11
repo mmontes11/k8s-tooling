@@ -29,6 +29,8 @@ echo "🐶 Installing k9s..."
 
 K9S_CONFIG=${XDG_CONFIG_HOME:="$USER_HOME/.config/k9s"}
 K9S_CTX=${XDG_DATA_HOME:="$USER_HOME/.local/share/k9s"}
+echo "Config folder: $K9S_CONFIG"
+echo "Contextss folder: $K9S_CTX"
 
 function cleanup() {
   if [ -d "$K9S_CONFIG" ]; then
