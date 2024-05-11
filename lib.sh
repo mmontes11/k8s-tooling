@@ -39,6 +39,14 @@ function get_user_home() {
   echo $USER_HOME
 }
 
+function get_username() {
+  if [ -n "$SUDO_USER" ]; then
+      echo "$SUDO_USER"
+  else
+      echo "$(whoami)"
+  fi
+}
+
 function get_architecture() {
   ARCH=$(uname -m)
   if [ $ARCH = "x86_64" ]; then
