@@ -2,55 +2,7 @@
 
 set -eo pipefail
 
-function install_bin() {
-  BIN=$1
-  URL=$2
-  echo "Installing binary '$BIN'"
-  echo "Getting release from '$URL'..."
-
-  curl -Lo $BIN $URL
-  chmod +x $BIN
-  mv $BIN /usr/local/bin/$BIN
-}
-
-function install_tar() {
-  BIN=$1
-  URL=$2
-  TAR_DIR=$3
-  echo "Installing binary '$BIN' from tar.gz"
-  echo "Getting release from '$URL'..."
-
-  curl -Lo $BIN $URL
-  mkdir -p /tmp/$BIN
-  tar -C /tmp/$BIN -zxvf $BIN
-
-  BIN_PATH=/tmp/$BIN/$BIN
-  if [ ! -z $TAR_DIR ]; then
-    BIN_PATH=/tmp/$BIN/$TAR_DIR/$BIN
-  fi
-
-  chmod +x $BIN_PATH
-  mv $BIN_PATH /usr/local/bin/$BIN
-  rm -rf $BIN_PATH $BIN
-}
-
-function get_user_home() {
-  USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
-  echo $USER_HOME
-}
-
-function get_architecture() {
-  ARCH=$(uname -m)
-  if [ $ARCH = "x86_64" ]; then
-    echo "amd64"
-  elif [ $ARCH = "aarch64" ]; then
-    echo "arm64"
-  elif [[ $ARCH = "arm" ]]; then
-    echo "arm"
-  else
-    echo ""
-  fi
-}
+source <(curl -s source https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/lib.sh)
 
 USER_HOME=$(get_user_home)
 ARCH=$(get_architecture)
@@ -150,44 +102,3 @@ install_bin talosctl $TALOS_URL
 YQ_VERSION=v4.43.1
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 install_bin yq $YQ_URL
-
-# k9s
-K9S_VERSION=${K9S_VERSION:-v0.29.1}
-K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
-install_tar k9s $K9S_URL
-mkdir -p $USER_HOME/.config/k9s
-
-K9S_THEME=${K9S_THEME:-nord}
-K9S_THEME_URL=https://raw.githubusercontent.com/derailed/k9s/$K9S_VERSION/skins/$K9S_THEME.yml
-curl -Lo $USER_HOME/.config/k9s/skin.yml $K9S_THEME_URL
-
-mkdir -p $USER_HOME/.config/k9s
-K9S_PLUGIN_CONFIG=$USER_HOME/.config/k9s/plugin.yml
-
-if [ -f "$K9S_PLUGIN_CONFIG" ]; then
-  rm "$K9S_PLUGIN_CONFIG"
-fi
-
-function install_k9s_plugin() {
-  K9S_PLUGIN_URL="$1"
-  K9S_PLUGIN_CONFIG="$2"
-  K9S_PLUGIN_FILE=plugin.yml
-
-  curl -Lo $K9S_PLUGIN_FILE $K9S_PLUGIN_URL
-  cat $K9S_PLUGIN_FILE >> $K9S_PLUGIN_CONFIG
-  rm $K9S_PLUGIN_FILE
-}
-K9S_PLUGINS=(
-  # oficial
-  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/flux.yml"
-  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/watch_events.yml"
-  # custom
-  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/flux.yaml"
-  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/cert-manager.yaml"
-  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/plugins/openssl.yaml"
-)
-
-for i in "${!K9S_PLUGINS[@]}"; do
-  K9S_PLUGIN_URL="${K9S_PLUGINS[$i]}" 
-  install_k9s_plugin "$K9S_PLUGIN_URL" "$K9S_PLUGIN_CONFIG"
-done
