@@ -10,7 +10,7 @@ on:
 
 jobs:
   test-kubernetes:
-    name: Test
+    name: Test Kubernetes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,7 +23,7 @@ jobs:
         run: sudo KUBECTL_VERSION=v1.25.4 bash kubernetes.sh
 
   test-k9s:
-    name: Test
+    name: Test k9s
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
