@@ -9,7 +9,7 @@ current_line: &current_line "#383D4A"
 selection: &selection "#D9DEE8"
 comment: &comment "#8891A7"
 cyan: &cyan "#88C0D0"
-green: &green "#70D088"
+green: &green "#A3BE8C"
 orange: &orange "#D08770"
 blue: &blue "#81A1C1"
 magenta: &magenta "#B48EAD"
@@ -22,7 +22,7 @@ k9s:
   body:
     fgColor: *foreground
     bgColor: default
-    logoColor: *green
+    logoColor: default
   # Command prompt styles
   prompt:
     fgColor: *foreground
@@ -31,7 +31,7 @@ k9s:
   # ClusterInfoView styles.
   info:
     fgColor: *blue
-    sectionColor: *green
+    sectionColor: default
   # Dialog styles.
   dialog:
     fgColor: *foreground
