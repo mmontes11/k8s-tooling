@@ -1,4 +1,5 @@
 # Inspect certificate chains with openssl.
+# See: https://github.com/openssl/openssl.
 plugins:
   secret-openssl-ca:
     shortCut: Ctrl-O
