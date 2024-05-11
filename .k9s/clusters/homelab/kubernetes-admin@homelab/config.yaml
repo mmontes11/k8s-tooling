@@ -1,0 +1,13 @@
+k9s:
+  cluster: homelab
+  skin: narsingh
+  namespace:
+    active: default
+    lockFavorites: false
+    favorites:
+    - default
+  view:
+    active: po
+  featureGates:
+    nodeShell: true
+  portForwardAddress: localhost
