@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "rebaseWhen": "never",
   "prConcurrentLimit": 5,
   "baseBranches": ["main"],
   "semanticCommits": "enabled",
