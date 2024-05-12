@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "rebaseWhen": "never",
   "prConcurrentLimit": 5,
@@ -11,13 +11,13 @@
   "regexManagers": [
     {
       "fileMatch": [
-        "^kubernetes.sh$",
+        "^kubernetes.sh$"
       ],
       "matchStrings": [
-        "KIND_VERSION=${KIND_VERSION:-v(?<currentValue>.+?)}",
+        "KIND_VERSION=${KIND_VERSION:-v(?<currentValue>.+?)}"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/kind",
+      "depNameTemplate": "kubernetes-sigs/kind"
     }
   ],
   "packageRules": [
