@@ -12,9 +12,7 @@ if [ -z $ARCH ]; then
   exit 1
 fi
 
-# yq
-echo "Installing yq..."
-
+log "Installing yq..."
 YQ_VERSION=${YQ_VERSION:-v4.43.1}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 
@@ -24,9 +22,7 @@ else
   echo "yq is already installed"
 fi
 
-# k9s
-echo "🐶 Installing k9s..."
-
+log "Installing k9s..."
 K9S_CONFIG=${XDG_CONFIG_HOME:="$USER_HOME/.config/k9s"}
 K9S_CTX=${XDG_DATA_HOME:="$USER_HOME/.local/share/k9s"}
 echo "Config folder: $K9S_CONFIG"
@@ -98,4 +94,4 @@ cp -r .k9s/clusters/* "$K9S_CTX/clusters"
 chown -R "$USER:$USER" "$K9S_CONFIG"
 chown -R "$USER:$USER" "$K9S_CTX"
 
-echo "🐶 Done!"
+log "Done!"

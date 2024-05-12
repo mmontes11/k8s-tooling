@@ -5,10 +5,10 @@ set -eo pipefail
 function install_bin() {
   BIN=$1
   URL=$2
-  echo "Installing binary '$BIN'"
+  echo "Installing binary '$BIN'..."
   echo "Getting release from '$URL'..."
 
-  curl -Lo $BIN $URL
+  curl -sSLo $BIN $URL
   chmod +x $BIN
   mv $BIN /usr/local/bin/$BIN
 }
@@ -17,10 +17,10 @@ function install_tar() {
   BIN=$1
   URL=$2
   TAR_DIR=$3
-  echo "Installing binary '$BIN' from tar.gz"
+  echo "Installing binary '$BIN' from tar.gz..."
   echo "Getting release from '$URL'..."
 
-  curl -Lo $BIN $URL
+  curl -sSLo $BIN $URL
   mkdir -p /tmp/$BIN
   tar -C /tmp/$BIN -zxvf $BIN
 
@@ -58,4 +58,8 @@ function get_architecture() {
   else
     echo ""
   fi
+}
+
+function log() {
+  echo "🧰 $1"
 }
