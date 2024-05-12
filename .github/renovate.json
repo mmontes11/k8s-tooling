@@ -14,7 +14,7 @@
       "matchStrings": [
         "KIND_VERSION=${KIND_VERSION:-v(?<currentValue>.+?)}"
       ],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-tags",
       "depNameTemplate": "kubernetes-sigs/kind"
     }
   ],
