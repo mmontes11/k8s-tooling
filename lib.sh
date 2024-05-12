@@ -22,8 +22,8 @@ function install_tar() {
 
   curl -sSLo $BIN $URL
   mkdir -p /tmp/$BIN
-  tar -C /tmp/$BIN -zxvf $BIN
-
+  tar -C /tmp/$BIN -zxvf $BIN > /dev/null 2>&1
+  
   BIN_PATH=/tmp/$BIN/$BIN
   if [ ! -z $TAR_DIR ]; then
     BIN_PATH=/tmp/$BIN/$TAR_DIR/$BIN
