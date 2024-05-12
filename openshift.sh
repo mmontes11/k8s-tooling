@@ -14,7 +14,7 @@ fi
 log "Installing openshift-local..."
 CRC_VERSION=2.29.0
 CRC_URL=https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/crc/$CRC_VERSION/crc-linux-$ARCH.tar.xz
-curl -Lo /tmp/crc.tar.xz $CRC_URL
+curl -sSLo /tmp/crc.tar.xz $CRC_URL
 tar -C /tmp -xvf /tmp/crc.tar.xz > /dev/null 2>&1
 mv /tmp/crc-linux-$CRC_VERSION-$ARCH/crc /usr/local/bin
 chmod +x /usr/local/bin/crc
