@@ -26,19 +26,19 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [vcluster](https://github.com/loft-sh/vcluster)
 - [yq](https://github.com/mikefarah/yq)
 
-### Kubernetes
+### ☸️ Kubernetes
 
 ```bash
 curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/kubernetes.sh | sudo bash -s -
 ``` 
 
-### Openshift
+### ⛑️ Openshift
 
 ```bash
 curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/kubernetes.sh | sudo bash -s -
 ```
 
-### k9s
+### 🐶 k9s
 
 ```bash
 curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | sudo bash -s -
