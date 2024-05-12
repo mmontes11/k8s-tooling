@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "rebaseWhen": "never",
+  "prConcurrentLimit": 5,
+  "baseBranches": ["main"],
+  "semanticCommits": "enabled",
+  "labels": ["dependencies"],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^kubernetes.sh$",
+      ],
+      "matchStrings": [
+        "KIND_VERSION=${KIND_VERSION:-v(?<currentValue>.+?)}",
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubernetes-sigs/kind",
+    }
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
+}
