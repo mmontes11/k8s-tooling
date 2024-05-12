@@ -46,7 +46,7 @@ function cleanup() {
 if [ "$1" == "--force" -o "$1" == "-f" -o "$1" == "-y" ]; then
   cleanup
 else
-  read -p "Do you want to cleanup existing config @ '$K9S_CONFIG' and contexts @ '$K9S_CTX'? (y/n) " -n 1
+  read -p "Do you want to cleanup existing config at '$K9S_CONFIG' and contexts at '$K9S_CTX'? (y/n) " -n 1
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     cleanup
@@ -64,7 +64,7 @@ touch "$K9S_CONFIG/plugins.yaml"
 mkdir -p "$K9S_CTX"
 mkdir -p "$K9S_CTX/clusters"
 
-git clone https://github.com/derailed/k9s.git
+git clone -q --no-progress https://github.com/derailed/k9s.git
 cp k9s/skins/* "$K9S_CONFIG/skins"
 rm -rf k9s
 cp .k9s/skins/* "$K9S_CONFIG/skins"
@@ -80,7 +80,7 @@ K9S_PLUGINS=(
   "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/.k9s/plugins/openssl.yaml"
 )
 for i in "${!K9S_PLUGINS[@]}"; do
-  curl -Lo plugin.yaml "${K9S_PLUGINS[$i]}"
+  curl -sSLo plugin.yaml "${K9S_PLUGINS[$i]}"
 
   yq eval-all '. as $item ireduce ({}; . *+ $item)' \
     --inplace "$K9S_CONFIG/plugins.yaml" plugin.yaml
