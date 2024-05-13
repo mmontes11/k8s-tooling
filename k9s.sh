@@ -43,7 +43,7 @@ function cleanup() {
   fi
 }
 
-if [ "$1" == "--force" -o "$1" == "-f" -o "$1" == "-y" ]; then
+if [ "$1" == "-f" -o "$1" == "-y" ]; then
   cleanup
 else
   read -p "Do you want to cleanup existing config at '$K9S_CONFIG' and contexts at '$K9S_CTX'? (y/n) " -n 1
@@ -65,31 +65,29 @@ mkdir -p "$K9S_CTX"
 mkdir -p "$K9S_CTX/clusters"
 
 git clone -q --no-progress https://github.com/derailed/k9s.git
-cp k9s/skins/* "$K9S_CONFIG/skins"
-rm -rf k9s
-
 git clone -q --no-progress https://github.com/mmontes11/k8s-tooling.git
+
+cp k9s/skins/* "$K9S_CONFIG/skins"
 cp k8s-tooling/.k9s/config.yaml "$K9S_CONFIG/config.yaml"
 cp -r k8s-tooling/.k9s/skins/* "$K9S_CONFIG/skins"
 cp -r k8s-tooling/.k9s/clusters/* "$K9S_CTX/clusters"
-rm -rf k8s-tooling
 
 K9S_PLUGINS=(
   # oficial
-  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/debug-container.yaml"
-  "https://raw.githubusercontent.com/derailed/k9s/master/plugins/watch-events.yaml"
+  "k9s/plugins/debug-container.yaml"
+  "k9s/plugins/watch-events.yaml"
   # custom
-  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/.k9s/plugins/flux.yaml"
-  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/.k9s/plugins/cert-manager.yaml"
-  "https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/.k9s/plugins/openssl.yaml"
+  "k8s-tooling/.k9s/plugins/flux.yaml"
+  "k8s-tooling/.k9s/plugins/cert-manager.yaml"
+  "k8s-tooling/.k9s/plugins/openssl.yaml"
 )
 for i in "${!K9S_PLUGINS[@]}"; do
-  curl -sSLo plugin.yaml "${K9S_PLUGINS[$i]}"
-
   yq eval-all '. as $item ireduce ({}; . *+ $item)' \
-    --inplace "$K9S_CONFIG/plugins.yaml" plugin.yaml
-  rm plugin.yaml
+    --inplace "$K9S_CONFIG/plugins.yaml" "${K9S_PLUGINS[$i]}"
 done
+
+rm -rf k9s
+rm -rf k8s-tooling
 
 chown -R "$USER:$USER" "$K9S_CONFIG"
 chown -R "$USER:$USER" "$K9S_CTX"
