@@ -67,8 +67,12 @@ mkdir -p "$K9S_CTX/clusters"
 git clone -q --no-progress https://github.com/derailed/k9s.git
 cp k9s/skins/* "$K9S_CONFIG/skins"
 rm -rf k9s
-cp .k9s/skins/* "$K9S_CONFIG/skins"
 
+git clone -q --no-progress https://github.com/mmontes11/k8s-tooling.git
+cp k8s-tooling/.k9s/config.yaml "$K9S_CONFIG/config.yaml"
+cp -r k8s-tooling/.k9s/skins/* "$K9S_CONFIG/skins"
+cp -r k8s-tooling/.k9s/clusters/* "$K9S_CTX/clusters"
+rm -rf k8s-tooling
 
 K9S_PLUGINS=(
   # oficial
@@ -86,10 +90,6 @@ for i in "${!K9S_PLUGINS[@]}"; do
     --inplace "$K9S_CONFIG/plugins.yaml" plugin.yaml
   rm plugin.yaml
 done
-
-cp .k9s/config.yaml "$K9S_CONFIG/config.yaml"
-
-cp -r .k9s/clusters/* "$K9S_CTX/clusters"
 
 chown -R "$USER:$USER" "$K9S_CONFIG"
 chown -R "$USER:$USER" "$K9S_CTX"
