@@ -19,12 +19,13 @@ tar -C /tmp -xvf /tmp/crc.tar.xz > /dev/null 2>&1
 mv /tmp/crc-linux-$CRC_VERSION-$ARCH/crc /usr/local/bin
 chmod +x /usr/local/bin/crc
 
+OPENSHIFT_VERSION=${OPENSHIFT_VERSION:-4.15.14}
 log "Installing oc..."
-OC_URL=https://mirror.openshift.com/pub/openshift-v4/$(uname -m)/clients/ocp/stable-4.15/openshift-client-linux-4.15.11.tar.gz
+OC_URL=https://mirror.openshift.com/pub/openshift-v4/$(uname -m)/clients/ocp/$OPENSHIFT_VERSION/openshift-client-linux-$OPENSHIFT_VERSION.tar.gz
 install_tar oc $OC_URL
 
 log "Installing opm..."
-OPM_URL=https://mirror.openshift.com/pub/openshift-v4/$(uname -m)/clients/ocp/stable-4.15/opm-linux-4.15.11.tar.gz
+OPM_URL=https://mirror.openshift.com/pub/openshift-v4/$(uname -m)/clients/ocp/$OPENSHIFT_VERSION/opm-linux-$OPENSHIFT_VERSION.tar.gz
 install_tar opm $OPM_URL
 
 log "Installing operator-sdk..."
