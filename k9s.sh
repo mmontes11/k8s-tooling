@@ -74,12 +74,12 @@ cp -r k8s-tooling/.k9s/clusters/* "$K9S_CTX/clusters"
 
 K9S_PLUGINS=(
   # oficial
+  "k9s/plugins/cert-manager.yaml"
   "k9s/plugins/debug-container.yaml"
+  "k9s/plugins/openssl.yaml"
   "k9s/plugins/watch-events.yaml"
   # custom
   "k8s-tooling/.k9s/plugins/flux.yaml"
-  "k8s-tooling/.k9s/plugins/cert-manager.yaml"
-  "k8s-tooling/.k9s/plugins/openssl.yaml"
 )
 for i in "${!K9S_PLUGINS[@]}"; do
   yq eval-all '. as $item ireduce ({}; . *+ $item)' \
