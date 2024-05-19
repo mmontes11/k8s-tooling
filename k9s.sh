@@ -81,9 +81,9 @@ K9S_PLUGINS=(
   # custom
   "k8s-tooling/.k9s/plugins/flux.yaml"
 )
-for i in "${!K9S_PLUGINS[@]}"; do
+for PLUGIN in "${K9S_PLUGINS[@]}"; do
   yq eval-all '. as $item ireduce ({}; . *+ $item)' \
-    --inplace "$K9S_CONFIG/plugins.yaml" "${K9S_PLUGINS[$i]}"
+    --inplace "$K9S_CONFIG/plugins.yaml" "$PLUGIN"
 done
 
 rm -rf k9s
