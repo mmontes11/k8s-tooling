@@ -45,7 +45,7 @@ jobs:
           echo "RELEASE_ARGS=${RELEASE_ARGS}" >> $GITHUB_OUTPUT
       
       - name: GoReleaser
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v6
         with:
           version: latest
           args: ${{ steps.prep.outputs.RELEASE_ARGS }}
