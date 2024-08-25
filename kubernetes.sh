@@ -12,12 +12,12 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.30.0}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.31.0}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 log "Installing helm..."
-HELM_VERSION=${HELM_VERSION:-v3.14.4}
+HELM_VERSION=${HELM_VERSION:-v3.15.4}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
@@ -29,12 +29,12 @@ KUBENS_URL=https://github.com/ahmetb/kubectx/releases/download/$KUBECTX_VERSION/
 install_bin kubens $KUBENS_URL
 
 log "Installing kind..."
-KIND_VERSION=${KIND_VERSION:-v0.21.0}
+KIND_VERSION=${KIND_VERSION:-v0.24.0}
 KIND_URL=https://kind.sigs.k8s.io/dl/$KIND_VERSION/kind-linux-$ARCH
 install_bin kind $KIND_URL
 
 log "Installing kustomize..."
-KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.1/kustomize_v5.4.1_linux_$ARCH.tar.gz}
+KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_$ARCH.tar.gz}
 install_tar kustomize $KUSMTOMIZE_URL
 
 log "Installing kubebuilder..."
@@ -42,8 +42,13 @@ KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v3.14.2}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
 
+log "Installing kubeadm-join-config..."
+KUBEADM_JOIN_CONFIG_VERSION=${KUBEADM_JOIN_CONFIG:-0.0.1}
+KUBEADM_JOIN_CONFIG_URL=https://github.com/mmontes11/k8s-bootstrap/releases/download/v${KUBEADM_JOIN_CONFIG_VERSION}/kubeadm-join-config_${KUBEADM_JOIN_CONFIG_VERSION}_${ARCH}
+install_bin kubeadm-join-config $KUBEADM_JOIN_CONFIG_URL
+
 log "Installing cilium..."
-CILIUM_VERSION=${CILIUM_VERSION:-v0.16.7}
+CILIUM_VERSION=${CILIUM_VERSION:-v0.16.16}
 CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/$CILIUM_VERSION/cilium-linux-$ARCH.tar.gz}
 install_tar cilium $CILIUM_URL
 
