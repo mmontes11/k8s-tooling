@@ -12,6 +12,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [helm](https://github.com/helm/helm)
 - [k9s](https://github.com/derailed/k9s)
 - [kind](https://github.com/kubernetes-sigs/kind/)
+- [kubeadm-join-config](https://github.com/mmontes11/k8s-bootstrap/blob/main/cmd/kubeadm-join-config/main.go)
 - [kubebuilder](https://github.com/kubernetes-sigs/kubebuilder)
 - [kubectl](https://github.com/kubernetes/kubectl)
 - [kubectx + kubens](https://github.com/ahmetb/kubectx)
