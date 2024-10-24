@@ -86,5 +86,10 @@ YQ_VERSION=${YQ_VERSION:-v4.43.1}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 install_bin yq $YQ_URL
 
+log "Installing kubestr..."
+KUBESTR_VERSION=${KUBESTR_VERSION:-0.4.46}
+KUBESTR_URL=https://github.com/kastenhq/kubestr/releases/download/v${KUBESTR_VERSION}/kubestr_${KUBESTR_VERSION}_Linux_${ARCH}.tar.gz
+install_tar kubestr $KUBESTR_URL
+
 # k9s
 source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
