@@ -93,3 +93,6 @@ install_tar kubestr $KUBESTR_URL
 
 # k9s
 source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
+
+# krew
+source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/krew.sh) -y

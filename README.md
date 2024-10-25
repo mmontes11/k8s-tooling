@@ -47,6 +47,19 @@ curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | 
 
 [k9s](https://github.com/derailed/k9s) is also installed by the [Kubernetes](#kubernetes) installation flavour.
 
+### 🧩 krew
+
+```bash
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | sudo bash -s -
+``` 
+
+After installing, please add the following line to your `.bashrc`/`.zshrc`:
+```bash
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+```
+
+[krew](https://krew.sigs.k8s.io/) is also installed by the [Kubernetes](#kubernetes) installation flavour.
+
 ### Override versions
 
 ```bash

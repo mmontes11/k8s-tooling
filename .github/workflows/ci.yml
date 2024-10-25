@@ -45,3 +45,16 @@ jobs:
 
       - name: Test k9s override
         run: sudo K9S_VERSION=v0.32.4 bash k9s.sh -y
+
+  test-krew:
+    name: Test krew
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test
+        run: sudo bash krew.sh -y
+
+      - name: Test krew override
+        run: sudo KREW_VERSION=v0.4.4 bash krew.sh -y
