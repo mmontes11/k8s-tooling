@@ -5,6 +5,7 @@ set -eo pipefail
 source <(curl -s source https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/lib.sh)
 
 USER_HOME=$(get_user_home)
+USER=$(get_username)
 ARCH=$(get_architecture)
 if [ -z $ARCH ]; then
   echo "Architecture not supported"
@@ -95,4 +96,4 @@ install_tar kubestr $KUBESTR_URL
 source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
 
 # krew
-source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/krew.sh) -y
+sudo -u $USER bash -c 'curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash'
