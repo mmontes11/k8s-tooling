@@ -51,7 +51,7 @@ curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | 
 ### 🧩 krew
 
 ```bash
-curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | sudo bash -s -
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash -s -
 ``` 
 
 After installing, please add the following line to your `.bashrc`/`.zshrc`:
