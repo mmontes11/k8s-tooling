@@ -20,6 +20,7 @@ kubectl krew update
 
 KREW_PLUGINS=(
   "access-matrix"
+  "browse-pvc"
   "ca-cert"
   "cert-manager"
   "cilium"
