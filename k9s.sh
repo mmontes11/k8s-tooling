@@ -53,7 +53,7 @@ else
   fi
 fi
 
-K9S_VERSION=${K9S_VERSION:-v0.32.5}
+K9S_VERSION=${K9S_VERSION:-v0.40.5}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 
