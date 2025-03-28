@@ -25,8 +25,8 @@ OC_URL=https://mirror.openshift.com/pub/openshift-v4/$(uname -m)/clients/ocp/$OC
 install_tar oc $OC_URL
 
 log "Installing opm..."
-OPM_VERSION=${OPM_VERSION:-v1.51.1}
-OPM_URL=https://github.com/operator-framework/operator-registry/releases/download/$OPM_VERSION/$OS-$ARCH-opm 
+OPM_VERSION=${OPM_VERSION:-v1.51.0}
+OPM_URL=https://github.com/operator-framework/operator-registry/releases/download/$OPM_VERSION/linux-$ARCH-opm 
 install_bin opm $OPM_URL
 
 log "Installing operator-sdk..."
