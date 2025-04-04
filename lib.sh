@@ -13,6 +13,16 @@ function install_bin() {
   mv $BIN /usr/local/bin/$BIN
 }
 
+function install_deb() {
+  DEB=$1
+  URL=$2
+  echo "Installing deb package '$DEB'..."
+  echo "Getting package from '$URL'..."
+
+  curl -sSLo $DEB $URL
+  dpkg -i $DEB 
+}
+
 function install_tar() {
   BIN=$1
   URL=$2

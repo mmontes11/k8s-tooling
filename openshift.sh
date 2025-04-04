@@ -34,4 +34,9 @@ OPERATOR_SDK_VERSION=${OPERATOR_SDK_VERSION:-v1.39.2}
 OPERATOR_SDK_URL=https://github.com/operator-framework/operator-sdk/releases/download/$OPERATOR_SDK_VERSION/operator-sdk_linux_$ARCH
 install_bin operator-sdk $OPERATOR_SDK_URL
 
+log "Installing tekton..."
+TEKTON_VERSION=${TEKTON_VERSION:-0.40.0}
+TEKTON_URL="https://github.com/tektoncd/cli/releases/download/v${TEKTON_VERSION}/tektoncd-cli-${TEKTON_VERSION}_Linux-64bit.deb"
+install_deb tkn $TEKTON_URL
+
 log "Done!"
