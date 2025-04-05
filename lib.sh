@@ -7,7 +7,6 @@ function install_bin() {
   URL=$2
   echo "Installing binary '$BIN'..."
   echo "Getting release from '$URL'..."
-  echo
   curl -sSLo $BIN $URL
   chmod +x $BIN
   mv $BIN /usr/local/bin/$BIN
