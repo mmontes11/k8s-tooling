@@ -7,20 +7,10 @@ function install_bin() {
   URL=$2
   echo "Installing binary '$BIN'..."
   echo "Getting release from '$URL'..."
-
+  echo
   curl -sSLo $BIN $URL
   chmod +x $BIN
   mv $BIN /usr/local/bin/$BIN
-}
-
-function install_deb() {
-  DEB=$1
-  URL=$2
-  echo "Installing deb package '$DEB'..."
-  echo "Getting package from '$URL'..."
-
-  curl -sSLo $DEB $URL
-  dpkg -i $DEB 
 }
 
 function install_tar() {
