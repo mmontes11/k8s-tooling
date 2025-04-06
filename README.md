@@ -25,6 +25,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [operator-sdk](https://github.com/operator-framework/operator-sdk)
 - [opm](https://github.com/operator-framework/operator-registry)
 - [talosctl](https://github.com/siderolabs/talos/releases)
+- [tekton](https://github.com/tektoncd/cli)
 - [vcluster](https://github.com/loft-sh/vcluster)
 - [yq](https://github.com/mikefarah/yq)
 
