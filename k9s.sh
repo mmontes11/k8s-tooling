@@ -53,7 +53,7 @@ else
   fi
 fi
 
-K9S_VERSION=${K9S_VERSION:-v0.40.5}
+K9S_VERSION=${K9S_VERSION:-v0.50.4}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 
@@ -80,6 +80,7 @@ K9S_PLUGINS=(
   "k9s/plugins/watch-events.yaml"
   # custom
   "k8s-tooling/.k9s/plugins/flux.yaml"
+  "k8s-tooling/.k9s/plugins/resource-recommendations.yaml"
 )
 for PLUGIN in "${K9S_PLUGINS[@]}"; do
   yq eval-all '. as $item ireduce ({}; . *+ $item)' \
