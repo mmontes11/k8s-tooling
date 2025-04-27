@@ -33,7 +33,7 @@ plugins:
     args:
       - -c
       - |
-        krr simple --cluster $CONTEXT -n $RESOURCE_NAME
+        krr simple --cluster $CONTEXT -n $NAME
         echo "Press 'q' to exit"
         while : ; do
         read -n 1 k <&1
