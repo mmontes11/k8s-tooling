@@ -13,6 +13,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [k9s](https://github.com/derailed/k9s)
 - [kind](https://github.com/kubernetes-sigs/kind/)
 - [krew](https://krew.sigs.k8s.io/)
+- [krr](https://github.com/robusta-dev/krr)
 - [kubeadm-join-config](https://github.com/mmontes11/k8s-bootstrap/blob/main/cmd/kubeadm-join-config/main.go)
 - [kubebuilder](https://github.com/kubernetes-sigs/kubebuilder)
 - [kubectl](https://github.com/kubernetes/kubectl)
