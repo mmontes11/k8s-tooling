@@ -92,6 +92,18 @@ KUBESTR_VERSION=${KUBESTR_VERSION:-0.4.48}
 KUBESTR_URL=https://github.com/kastenhq/kubestr/releases/download/v${KUBESTR_VERSION}/kubestr_${KUBESTR_VERSION}_Linux_${ARCH}.tar.gz
 install_tar kubestr $KUBESTR_URL
 
+log "Installing krr..."
+KRR_VERSION=${KRR_VERSION:-v1.23.0}
+KRR_URL="https://github.com/robusta-dev/krr/releases/download/${KRR_VERSION}/krr-ubuntu-latest-${KRR_VERSION}.zip"
+TMP_DIR=$(mktemp -d)
+curl -sSLo "$TMP_DIR/krr.zip" "$KRR_URL"  
+unzip -q "$TMP_DIR/krr.zip" -d "$TMP_DIR"
+rm -rf /opt/krr
+rm -rf /usr/local/bin/krr
+mv $TMP_DIR/krr /opt
+ln -s /opt/krr/krr /usr/local/bin/krr
+rm -rf "$TMP_DIR"
+
 # k9s
 source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
 
