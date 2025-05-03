@@ -88,7 +88,7 @@ YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$A
 install_bin yq $YQ_URL
 
 log "Installing kubestr..."
-KUBESTR_VERSION=${KUBESTR_VERSION:-0.4.48}
+KUBESTR_VERSION=${KUBESTR_VERSION:-0.4.49}
 KUBESTR_URL=https://github.com/kastenhq/kubestr/releases/download/v${KUBESTR_VERSION}/kubestr_${KUBESTR_VERSION}_Linux_${ARCH}.tar.gz
 install_tar kubestr $KUBESTR_URL
 
