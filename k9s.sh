@@ -77,10 +77,10 @@ K9S_PLUGINS=(
   "k9s/plugins/cert-manager.yaml"
   "k9s/plugins/debug-container.yaml"
   "k9s/plugins/openssl.yaml"
+  "k9s/plugins/resource-recommendations.yaml"
   "k9s/plugins/watch-events.yaml"
   # custom
   "k8s-tooling/.k9s/plugins/flux.yaml"
-  "k8s-tooling/.k9s/plugins/resource-recommendations.yaml"
 )
 for PLUGIN in "${K9S_PLUGINS[@]}"; do
   yq eval-all '. as $item ireduce ({}; . *+ $item)' \
