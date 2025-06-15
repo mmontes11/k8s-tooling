@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.32.0}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.33.1}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
@@ -42,6 +42,11 @@ log "Installing kubebuilder..."
 KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.5.1}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
+
+log "Installing clusterctl..."
+CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.10.2}
+CLUSTERCTL_URL=https://github.com/kubernetes-sigs/cluster-api/releases/download/$CLUSTERCTL_VERSION/clusterctl-linux-$ARCH
+install_bin clusterctl $CLUSTERCTL_URL
 
 log "Installing kubeadm-join-config..."
 KUBEADM_JOIN_CONFIG_VERSION=${KUBEADM_JOIN_CONFIG:-0.0.1}
