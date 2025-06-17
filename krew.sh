@@ -28,6 +28,7 @@ KREW_PLUGINS=(
   "cond"
   "ctx"
   "df-pv"
+  "edit-status"
   "explore"
   "foreach"
   "get-all"
