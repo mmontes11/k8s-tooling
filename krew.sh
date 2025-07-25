@@ -32,6 +32,7 @@ KREW_PLUGINS=(
   "explore"
   "foreach"
   "get-all"
+  "konfig"
   "ktop"
   "minio"
   "neat"
