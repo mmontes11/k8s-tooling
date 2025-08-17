@@ -79,7 +79,7 @@ VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VER
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.9.4}
+TALOS_VERSION=${TALOS_VERSION:-v1.10.5}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 
@@ -114,8 +114,8 @@ mv $TMP_DIR/krr /opt
 ln -s /opt/krr/krr /usr/local/bin/krr
 rm -rf "$TMP_DIR"
 
-# k9s
-source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
+# # k9s
+# source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
 
-# krew
-sudo -u $USER bash -c 'curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash'
+# # krew
+# sudo -u $USER bash -c 'curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash'
