@@ -28,6 +28,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [talosctl](https://github.com/siderolabs/talos/releases)
 - [tekton](https://github.com/tektoncd/cli)
 - [vcluster](https://github.com/loft-sh/vcluster)
+- [warp](https://github.com/minio/warp)
 - [yq](https://github.com/mikefarah/yq)
 
 ### ☸️ Kubernetes
