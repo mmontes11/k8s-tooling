@@ -78,10 +78,6 @@ VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.22.4}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 
-log "Installing mc..."
-MC_URL=https://dl.min.io/client/mc/release/linux-$ARCH/mc
-install_bin mc $MC_URL
-
 log "Installing talosctl..."
 TALOS_VERSION=${TALOS_VERSION:-v1.9.4}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
@@ -91,6 +87,15 @@ log "Installing yq..."
 YQ_VERSION=${YQ_VERSION:-v4.45.1}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 install_bin yq $YQ_URL
+
+log "Installing MinIO mc..."
+MC_URL=https://dl.min.io/client/mc/release/linux-$ARCH/mc
+install_bin mc $MC_URL
+
+log "Installing MinIO warp..."
+WARP_VERSION=${WARP_VERSION:-v1.3.0}
+WARP_URL=https://github.com/minio/warp/releases/download/$WARP_VERSION/warp_Linux_$(uname -m).tar.gz
+install_tar warp $WARP_URL
 
 log "Installing kubestr..."
 KUBESTR_VERSION=${KUBESTR_VERSION:-0.4.49}
