@@ -136,12 +136,11 @@
   ],
   "packageRules": [
     {
-      "matchDepTypes": ["action"],
+      "matchDatasources": ["github-actions"],
       "automerge": true
     },
     {
       "matchDatasources": ["github-tags", "github-releases"],
-      "excludeDepTypes": ["action"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "groupName": "kubernetes-dependencies"
