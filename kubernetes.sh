@@ -94,8 +94,8 @@ install_bin mc $MC_URL
 
 log "Installing MinIO warp..."
 WARP_VERSION=${WARP_VERSION:-v1.3.0}
-WARP_URL=https://github.com/minio/warp/releases/download/$WARP_VERSION/warp_Linux_$(uname -m).tar.gz
-install_tar warp $WARP_URL
+WARP_URL=https://github.com/minio/warp/releases/download/$WARP_VERSION/warp_Linux_$ARCH.tar.gz
+install_tar warp $WARP_URL warp_Linux_$ARCH
 
 log "Installing kubestr..."
 KUBESTR_VERSION=${KUBESTR_VERSION:-0.4.49}
