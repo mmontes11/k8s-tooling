@@ -10,13 +10,13 @@
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KIND_VERSION=\\${KIND_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/kind"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBECTL_VERSION=\\${KUBECTL_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes"
     },
     {
@@ -28,13 +28,13 @@
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBECTX_VERSION=\\${KUBECTX_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ahmetb/kubectx"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUSMTOMIZE_URL=\\${KUSMTOMIZE_URL:-.*kustomize%2Fv(?<currentValue>[^/]+)\\/"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/kustomize"
     },
     {
@@ -46,91 +46,91 @@
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["CLUSTERCTL_VERSION=\\${CLUSTERCTL_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/cluster-api"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBEADM_JOIN_CONFIG_VERSION=\\${KUBEADM_JOIN_CONFIG:-(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "mmontes11/k8s-bootstrap"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["CILIUM_VERSION=\\${CILIUM_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "cilium/cilium-cli"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["FLUX_VERSION=\\${FLUX_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "fluxcd/flux2"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["CM_VERSION=\\${CM_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "cert-manager/cmctl"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBESEAL_VERSION=\\${KUBESEAL_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "bitnami-labs/sealed-secrets"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["VCLUSTER_VERSION=\\${VCLUSTER_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "loft-sh/vcluster"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["TALOS_VERSION=\\${TALOS_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "siderolabs/talos"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["YQ_VERSION=\\${YQ_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "mikefarah/yq"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["WARP_VERSION=\\${WARP_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "minio/warp"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBESTR_VERSION=\\${KUBESTR_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kastenhq/kubestr"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KRR_VERSION=\\${KRR_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "robusta-dev/krr"
     },
     {
       "fileMatch": ["^k9s.sh$"],
       "matchStrings": ["YQ_VERSION=\\${YQ_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "mikefarah/yq"
     },
     {
       "fileMatch": ["^k9s.sh$"],
       "matchStrings": ["K9S_VERSION=\\${K9S_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "derailed/k9s"
     },
     {
       "fileMatch": ["^krew.sh$"],
       "matchStrings": ["KREW_VERSION=\\${KREW_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/krew"
     }
   ],
@@ -140,7 +140,7 @@
       "automerge": true
     },
     {
-      "matchDatasources": ["github-tags", "github-releases"],
+      "matchDatasources": ["github-releases"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "groupName": "kubernetes-dependencies"
