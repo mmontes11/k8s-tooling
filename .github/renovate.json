@@ -40,7 +40,7 @@
     {
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBEBUILDER_VERSION=\\${KUBEBUILDER_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubebuilder/kubebuilder"
     },
     {
