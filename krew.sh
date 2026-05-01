@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-KREW_VERSION=${KREW_VERSION:-v0.4.4}
+KREW_VERSION=${KREW_VERSION:-v0.5.0}
 (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
