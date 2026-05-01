@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing yq..."
-YQ_VERSION=${YQ_VERSION:-v4.43.1}
+YQ_VERSION=${YQ_VERSION:-v4.53.2}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 
 if ! command -v yq &> /dev/null; then
@@ -53,7 +53,7 @@ else
   fi
 fi
 
-K9S_VERSION=${K9S_VERSION:-v0.50.16}
+K9S_VERSION=${K9S_VERSION:-v0.50.18}
 K9S_URL=https://github.com/derailed/k9s/releases/download/$K9S_VERSION/k9s_Linux_$ARCH.tar.gz
 install_tar k9s $K9S_URL
 
