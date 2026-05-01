@@ -41,7 +41,7 @@
       "fileMatch": ["^kubernetes.sh$"],
       "matchStrings": ["KUBEBUILDER_VERSION=\\${KUBEBUILDER_VERSION:-v(?<currentValue>.+?)}"],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubebuilder/kubebuilder"
+      "depNameTemplate": "kubernetes-sigs/kubebuilder"
     },
     {
       "fileMatch": ["^kubernetes.sh$"],
