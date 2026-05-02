@@ -1,149 +1,261 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
   ],
-  "labels": [
-    "dependencies"
+  labels: [
+    'dependencies',
   ],
-  "regexManagers": [
+  customManagers: [
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KIND_VERSION=\\${KIND_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/kind"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KIND_VERSION=\\${KIND_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kubernetes-sigs/kind',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUBECTL_VERSION=\\${KUBECTL_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes/kubernetes"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUBECTL_VERSION=\\${KUBECTL_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kubernetes/kubernetes',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["HELM_VERSION=\\${HELM_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "helm/helm"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'HELM_VERSION=\\${HELM_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'helm/helm',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUBECTX_VERSION=\\${KUBECTX_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "ahmetb/kubectx"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUBECTX_VERSION=\\${KUBECTX_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'ahmetb/kubectx',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUSMTOMIZE_URL=\\${KUSMTOMIZE_URL:-.*kustomize%2Fv(?<currentValue>[^/]+)\\/"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/kustomize"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUSMTOMIZE_URL=\\${KUSMTOMIZE_URL:-.*kustomize%2Fv(?<currentValue>[^/]+)\\/',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kubernetes-sigs/kustomize',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUBEBUILDER_VERSION=\\${KUBEBUILDER_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/kubebuilder"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUBEBUILDER_VERSION=\\${KUBEBUILDER_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kubernetes-sigs/kubebuilder',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["CLUSTERCTL_VERSION=\\${CLUSTERCTL_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/cluster-api"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'CLUSTERCTL_VERSION=\\${CLUSTERCTL_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kubernetes-sigs/cluster-api',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUBEADM_JOIN_CONFIG_VERSION=\\${KUBEADM_JOIN_CONFIG:-(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mmontes11/k8s-bootstrap"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUBEADM_JOIN_CONFIG_VERSION=\\${KUBEADM_JOIN_CONFIG:-(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'mmontes11/k8s-bootstrap',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["CILIUM_VERSION=\\${CILIUM_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "cilium/cilium-cli"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'CILIUM_VERSION=\\${CILIUM_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'cilium/cilium-cli',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["FLUX_VERSION=\\${FLUX_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "fluxcd/flux2"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'FLUX_VERSION=\\${FLUX_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'fluxcd/flux2',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["CM_VERSION=\\${CM_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "cert-manager/cmctl"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'CM_VERSION=\\${CM_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'cert-manager/cmctl',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUBESEAL_VERSION=\\${KUBESEAL_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "bitnami-labs/sealed-secrets"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUBESEAL_VERSION=\\${KUBESEAL_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'bitnami-labs/sealed-secrets',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["VCLUSTER_VERSION=\\${VCLUSTER_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "loft-sh/vcluster"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'VCLUSTER_VERSION=\\${VCLUSTER_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'loft-sh/vcluster',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["TALOS_VERSION=\\${TALOS_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "siderolabs/talos"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'TALOS_VERSION=\\${TALOS_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'siderolabs/talos',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["YQ_VERSION=\\${YQ_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mikefarah/yq"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'YQ_VERSION=\\${YQ_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'mikefarah/yq',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["WARP_VERSION=\\${WARP_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "minio/warp"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'WARP_VERSION=\\${WARP_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'minio/warp',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KUBESTR_VERSION=\\${KUBESTR_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kastenhq/kubestr"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KUBESTR_VERSION=\\${KUBESTR_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kastenhq/kubestr',
     },
     {
-      "fileMatch": ["^kubernetes.sh$"],
-      "matchStrings": ["KRR_VERSION=\\${KRR_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "robusta-dev/krr"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^kubernetes.sh$/',
+      ],
+      matchStrings: [
+        'KRR_VERSION=\\${KRR_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'robusta-dev/krr',
     },
     {
-      "fileMatch": ["^k9s.sh$"],
-      "matchStrings": ["YQ_VERSION=\\${YQ_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mikefarah/yq"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^k9s.sh$/',
+      ],
+      matchStrings: [
+        'YQ_VERSION=\\${YQ_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'mikefarah/yq',
     },
     {
-      "fileMatch": ["^k9s.sh$"],
-      "matchStrings": ["K9S_VERSION=\\${K9S_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "derailed/k9s"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^k9s.sh$/',
+      ],
+      matchStrings: [
+        'K9S_VERSION=\\${K9S_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'derailed/k9s',
     },
     {
-      "fileMatch": ["^krew.sh$"],
-      "matchStrings": ["KREW_VERSION=\\${KREW_VERSION:-v(?<currentValue>.+?)}"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/krew"
-    }
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^krew.sh$/',
+      ],
+      matchStrings: [
+        'KREW_VERSION=\\${KREW_VERSION:-v(?<currentValue>.+?)}',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'kubernetes-sigs/krew',
+    },
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "matchManagers": ["github-actions"],
-      "automerge": true
+      matchManagers: [
+        'github-actions',
+      ],
+      automerge: true,
     },
     {
-      "matchDatasources": ["github-releases"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "groupName": "kubernetes-dependencies"
-    }
-  ]
+      matchDatasources: [
+        'github-releases',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ],
+      automerge: true,
+      groupName: 'kubernetes-dependencies',
+    },
+  ],
 }
