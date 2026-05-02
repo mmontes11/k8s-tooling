@@ -136,7 +136,7 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["github-actions"],
+      "matchManagers": ["github-actions"],
       "automerge": true
     },
     {
