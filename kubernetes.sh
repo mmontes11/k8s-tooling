@@ -93,7 +93,7 @@ MC_URL=https://dl.min.io/client/mc/release/linux-$ARCH/mc
 install_bin mc $MC_URL
 
 log "Installing MinIO warp..."
-WARP_VERSION=${WARP_VERSION:-v1.4.1}
+WARP_VERSION=${WARP_VERSION:-v1.5.0}
 WARP_URL=https://dl.min.io/aistor/warp/release/linux-$ARCH/archive/warp.$WARP_VERSION
 install_bin warp $WARP_URL
 
