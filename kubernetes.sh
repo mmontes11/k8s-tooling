@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.0}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.1}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
@@ -59,7 +59,7 @@ CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/
 install_tar cilium $CILIUM_URL
 
 log "Installing flux..."
-FLUX_VERSION=${FLUX_VERSION:-2.8.6}
+FLUX_VERSION=${FLUX_VERSION:-2.8.7}
 FLUX_URL=https://github.com/fluxcd/flux2/releases/download/v${FLUX_VERSION}/flux_${FLUX_VERSION}_linux_$ARCH.tar.gz
 install_tar flux $FLUX_URL
 
@@ -79,7 +79,7 @@ VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VER
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.13.0}
+TALOS_VERSION=${TALOS_VERSION:-v1.13.2}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 
