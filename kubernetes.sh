@@ -74,12 +74,12 @@ KUBESEAL_URL=https://github.com/bitnami-labs/sealed-secrets/releases/download/v$
 install_tar kubeseal $KUBESEAL_URL
 
 log "Installing vcluster..."
-VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.34.1}
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.34.2}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.13.3}
+TALOS_VERSION=${TALOS_VERSION:-v1.13.4}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 
