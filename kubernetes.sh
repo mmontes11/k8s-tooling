@@ -13,12 +13,12 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.1}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.2}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 log "Installing helm..."
-HELM_VERSION=${HELM_VERSION:-v3.21.0}
+HELM_VERSION=${HELM_VERSION:-v3.21.1}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
