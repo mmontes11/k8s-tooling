@@ -87,6 +87,10 @@ for PLUGIN in "${K9S_PLUGINS[@]}"; do
     --inplace "$K9S_CONFIG/plugins.yaml" "$PLUGIN"
 done
 
+# Add override: true to all plugins to prevent "duplicate plugin key found" errors
+# with built-in k9s shortcuts. See: https://github.com/derailed/k9s/issues/3886
+yq eval '.plugins[].override = true' --inplace "$K9S_CONFIG/plugins.yaml"
+
 rm -rf k9s
 rm -rf k8s-tooling
 
