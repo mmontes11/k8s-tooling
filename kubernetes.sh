@@ -39,7 +39,7 @@ KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/re
 install_tar kustomize $KUSMTOMIZE_URL
 
 log "Installing kubebuilder..."
-KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.14.0}
+KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.15.0}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
 
