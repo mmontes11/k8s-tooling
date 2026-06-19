@@ -74,7 +74,7 @@ KUBESEAL_URL=https://github.com/bitnami-labs/sealed-secrets/releases/download/v$
 install_tar kubeseal $KUBESEAL_URL
 
 log "Installing vcluster..."
-VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.35.0}
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.35.1}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 
