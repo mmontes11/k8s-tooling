@@ -79,7 +79,7 @@ VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VER
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.13.4}
+TALOS_VERSION=${TALOS_VERSION:-v1.13.5}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 
