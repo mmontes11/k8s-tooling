@@ -44,7 +44,7 @@ KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download
 install_bin kubebuilder $KUBEBUILDER_URL
 
 log "Installing clusterctl..."
-CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.13.2}
+CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.13.3}
 CLUSTERCTL_URL=https://github.com/kubernetes-sigs/cluster-api/releases/download/$CLUSTERCTL_VERSION/clusterctl-linux-$ARCH
 install_bin clusterctl $CLUSTERCTL_URL
 
