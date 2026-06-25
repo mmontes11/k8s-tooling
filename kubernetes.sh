@@ -54,7 +54,7 @@ KUBEADM_JOIN_CONFIG_URL=https://github.com/mmontes11/k8s-bootstrap/releases/down
 install_bin kubeadm-join-config $KUBEADM_JOIN_CONFIG_URL
 
 log "Installing cilium..."
-CILIUM_VERSION=${CILIUM_VERSION:-v0.19.4}
+CILIUM_VERSION=${CILIUM_VERSION:-v0.19.5}
 CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/$CILIUM_VERSION/cilium-linux-$ARCH.tar.gz}
 install_tar cilium $CILIUM_URL
 
