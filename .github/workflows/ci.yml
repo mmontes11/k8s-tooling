@@ -58,3 +58,16 @@ jobs:
 
       - name: Test krew override
         run: sudo KREW_VERSION=v0.4.4 bash krew.sh -y
+
+  test-storage:
+    name: Test storage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Test
+        run: sudo bash storage.sh
+
+      - name: Test override
+        run: sudo KUBESTR_VERSION=0.4.48 bash storage.sh

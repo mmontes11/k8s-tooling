@@ -178,6 +178,17 @@
         "/^kubernetes.sh$/"
       ],
       "matchStrings": [
+        "KRR_VERSION=\\${KRR_VERSION:-v(?<currentValue>.+?)}"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "robusta-dev/krr"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^storage.sh$/"
+      ],
+      "matchStrings": [
         "WARP_VERSION=\\${WARP_VERSION:-v(?<currentValue>.+?)}"
       ],
       "datasourceTemplate": "github-releases",
@@ -186,7 +197,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^kubernetes.sh$/"
+        "/^storage.sh$/"
       ],
       "matchStrings": [
         "KUBESTR_VERSION=\\${KUBESTR_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"
@@ -197,13 +208,35 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^kubernetes.sh$/"
+        "/^storage.sh$/"
       ],
       "matchStrings": [
-        "KRR_VERSION=\\${KRR_VERSION:-v(?<currentValue>.+?)}"
+        "RCLONE_VERSION=\\${RCLONE_VERSION:-v(?<currentValue>.+?)}"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "robusta-dev/krr"
+      "depNameTemplate": "rclone/rclone"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^storage.sh$/"
+      ],
+      "matchStrings": [
+        "KOPIA_VERSION=\\${KOPIA_VERSION:-v(?<currentValue>.+?)}"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kopia/kopia"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^storage.sh$/"
+      ],
+      "matchStrings": [
+        "WEED_VERSION=\\${WEED_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "seaweedfs/seaweedfs"
     },
     {
       "customType": "regex",

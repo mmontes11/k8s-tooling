@@ -12,6 +12,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [helm](https://github.com/helm/helm)
 - [k9s](https://github.com/derailed/k9s)
 - [kind](https://github.com/kubernetes-sigs/kind/)
+- [kopia](https://github.com/kopia/kopia)
 - [krew](https://krew.sigs.k8s.io/)
 - [krr](https://github.com/robusta-dev/krr)
 - [kubeadm-join-config](https://github.com/mmontes11/k8s-bootstrap/blob/main/cmd/kubeadm-join-config/main.go)
@@ -19,16 +20,19 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [kubectl](https://github.com/kubernetes/kubectl)
 - [kubectx + kubens](https://github.com/ahmetb/kubectx)
 - [kubeseal](https://github.com/bitnami-labs/sealed-secrets)
+- [kubestr](https://github.com/kastenhq/kubestr)
 - [kustomize](https://github.com/kubernetes-sigs/kustomize)
 - [mc](https://github.com/minio/mc)
 - [oc](https://github.com/openshift/oc)
 - [openshift-local](https://developers.redhat.com/products/openshift-local/overview)
 - [operator-sdk](https://github.com/operator-framework/operator-sdk)
 - [opm](https://github.com/operator-framework/operator-registry)
+- [rclone](https://github.com/rclone/rclone)
 - [talosctl](https://github.com/siderolabs/talos/releases)
 - [tekton](https://github.com/tektoncd/cli)
 - [vcluster](https://github.com/loft-sh/vcluster)
 - [warp](https://github.com/minio/warp)
+- [weed (SeaweedFS)](https://github.com/seaweedfs/seaweedfs)
 - [yq](https://github.com/mikefarah/yq)
 
 ### ☸️ Kubernetes
@@ -63,6 +67,16 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 ```
 
 [krew](https://krew.sigs.k8s.io/) is also installed by the [Kubernetes](#kubernetes) installation flavour.
+
+### 💾 Storage
+
+```bash
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/storage.sh | sudo bash -s -
+```
+
+Installs [mc](https://github.com/minio/mc), [warp](https://github.com/minio/warp), [kubestr](https://github.com/kastenhq/kubestr), [rclone](https://github.com/rclone/rclone), [kopia](https://github.com/kopia/kopia) and [weed](https://github.com/seaweedfs/seaweedfs).
+
+Also installed by the [Kubernetes](#kubernetes) installation flavour.
 
 ### Override versions
 
