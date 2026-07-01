@@ -107,4 +107,4 @@ source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9
 sudo -u $USER bash -c 'curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash'
 
 # # storage
-curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/storage.sh | bash
+# curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/storage.sh | bash
