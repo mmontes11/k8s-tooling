@@ -55,6 +55,12 @@ curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | 
 
 [k9s](https://github.com/derailed/k9s) is also installed by the [Kubernetes](#kubernetes) installation flavour.
 
+### 💾 Storage
+
+```bash
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/storage.sh | sudo bash -s -
+```
+
 ### 🧩 krew
 
 ```bash
@@ -67,16 +73,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 ```
 
 [krew](https://krew.sigs.k8s.io/) is also installed by the [Kubernetes](#kubernetes) installation flavour.
-
-### 💾 Storage
-
-```bash
-curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/storage.sh | sudo bash -s -
-```
-
-Installs [mc](https://github.com/minio/mc), [warp](https://github.com/minio/warp), [kubestr](https://github.com/kastenhq/kubestr), [rclone](https://github.com/rclone/rclone), [kopia](https://github.com/kopia/kopia) and [weed](https://github.com/seaweedfs/seaweedfs).
-
-Also installed by the [Kubernetes](#kubernetes) installation flavour.
 
 ### Override versions
 
