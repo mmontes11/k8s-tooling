@@ -19,7 +19,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [kubebuilder](https://github.com/kubernetes-sigs/kubebuilder)
 - [kubectl](https://github.com/kubernetes/kubectl)
 - [kubectx + kubens](https://github.com/ahmetb/kubectx)
-- [kubeseal](https://github.com/bitnami-labs/sealed-secrets)
+- [kubeseal](https://github.com/bitnami/sealed-secrets)
 - [kubestr](https://github.com/kastenhq/kubestr)
 - [kustomize](https://github.com/kubernetes-sigs/kustomize)
 - [mc](https://github.com/minio/mc)
