@@ -69,7 +69,7 @@ CM_URL=https://github.com/cert-manager/cmctl/releases/download/$CM_VERSION/cmctl
 install_tar cmctl $CM_URL
 
 log "Installing kubeseal..."
-KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.38.1}
+KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.38.4}
 KUBESEAL_URL=https://github.com/bitnami/sealed-secrets/releases/download/v$KUBESEAL_VERSION/kubeseal-$KUBESEAL_VERSION-linux-$ARCH.tar.gz
 install_tar kubeseal $KUBESEAL_URL
 
