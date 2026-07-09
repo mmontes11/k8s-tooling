@@ -18,7 +18,7 @@ KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 log "Installing helm..."
-HELM_VERSION=${HELM_VERSION:-v3.21.2}
+HELM_VERSION=${HELM_VERSION:-v3.21.3}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
@@ -74,12 +74,12 @@ KUBESEAL_URL=https://github.com/bitnami/sealed-secrets/releases/download/v$KUBES
 install_tar kubeseal $KUBESEAL_URL
 
 log "Installing vcluster..."
-VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.35.1}
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.35.2}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.13.5}
+TALOS_VERSION=${TALOS_VERSION:-v1.13.6}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 

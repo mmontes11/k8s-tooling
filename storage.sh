@@ -25,7 +25,7 @@ KUBESTR_URL=https://github.com/kastenhq/kubestr/releases/download/v${KUBESTR_VER
 install_tar kubestr $KUBESTR_URL
 
 log "Installing rclone..."
-RCLONE_VERSION=${RCLONE_VERSION:-v1.74.3}
+RCLONE_VERSION=${RCLONE_VERSION:-v1.74.4}
 RCLONE_URL=https://github.com/rclone/rclone/releases/download/$RCLONE_VERSION/rclone-$RCLONE_VERSION-linux-$ARCH.zip
 TMP_DIR=$(mktemp -d)
 curl -sSLo "$TMP_DIR/rclone.zip" "$RCLONE_URL"
