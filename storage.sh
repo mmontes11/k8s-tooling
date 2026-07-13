@@ -44,7 +44,7 @@ KOPIA_URL=https://github.com/kopia/kopia/releases/download/$KOPIA_VERSION/kopia-
 install_tar kopia $KOPIA_URL kopia-${KOPIA_VERSION#v}-linux-$KOPIA_ARCH
 
 log "Installing SeaweedFS weed..."
-WEED_VERSION=${WEED_VERSION:-4.38}
+WEED_VERSION=${WEED_VERSION:-4.39}
 WEED_URL=https://github.com/seaweedfs/seaweedfs/releases/download/$WEED_VERSION/linux_$ARCH.tar.gz
 install_tar weed $WEED_URL
 

@@ -59,7 +59,7 @@ CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/
 install_tar cilium $CILIUM_URL
 
 log "Installing flux..."
-FLUX_VERSION=${FLUX_VERSION:-2.9.1}
+FLUX_VERSION=${FLUX_VERSION:-2.9.2}
 FLUX_URL=https://github.com/fluxcd/flux2/releases/download/v${FLUX_VERSION}/flux_${FLUX_VERSION}_linux_$ARCH.tar.gz
 install_tar flux $FLUX_URL
 
