@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.2}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.3}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
