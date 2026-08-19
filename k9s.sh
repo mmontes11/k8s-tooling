@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing yq..."
-YQ_VERSION=${YQ_VERSION:-v4.53.3}
+YQ_VERSION=${YQ_VERSION:-v4.53.4}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 
 if ! command -v yq &> /dev/null; then
