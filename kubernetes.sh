@@ -79,12 +79,12 @@ VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VER
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.13.8}
+TALOS_VERSION=${TALOS_VERSION:-v1.13.9}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 
 log "Installing yq..."
-YQ_VERSION=${YQ_VERSION:-v4.53.3}
+YQ_VERSION=${YQ_VERSION:-v4.53.4}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 install_bin yq $YQ_URL
 
