@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.3}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.4}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
@@ -69,7 +69,7 @@ CM_URL=https://github.com/cert-manager/cmctl/releases/download/$CM_VERSION/cmctl
 install_tar cmctl $CM_URL
 
 log "Installing kubeseal..."
-KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.39.0}
+KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.39.1}
 KUBESEAL_URL=https://github.com/bitnami/sealed-secrets/releases/download/v$KUBESEAL_VERSION/kubeseal-$KUBESEAL_VERSION-linux-$ARCH.tar.gz
 install_tar kubeseal $KUBESEAL_URL
 
@@ -84,7 +84,7 @@ TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/t
 install_bin talosctl $TALOS_URL
 
 log "Installing yq..."
-YQ_VERSION=${YQ_VERSION:-v4.53.4}
+YQ_VERSION=${YQ_VERSION:-v4.53.6}
 YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$ARCH
 install_bin yq $YQ_URL
 
