@@ -89,7 +89,7 @@ YQ_URL=https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_$A
 install_bin yq $YQ_URL
 
 log "Installing krr..."
-KRR_VERSION=${KRR_VERSION:-v1.29.0}
+KRR_VERSION=${KRR_VERSION:-v1.30.0}
 KRR_URL="https://github.com/robusta-dev/krr/releases/download/${KRR_VERSION}/krr-ubuntu-latest-${KRR_VERSION}.zip"
 TMP_DIR=$(mktemp -d)
 curl -sSLo "$TMP_DIR/krr.zip" "$KRR_URL"  
