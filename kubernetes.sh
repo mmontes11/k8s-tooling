@@ -13,7 +13,7 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.36.4}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.37.0}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
@@ -30,7 +30,7 @@ KUBENS_URL=https://github.com/ahmetb/kubectx/releases/download/$KUBECTX_VERSION/
 install_bin kubens $KUBENS_URL
 
 log "Installing kind..."
-KIND_VERSION=${KIND_VERSION:-v0.32.0}
+KIND_VERSION=${KIND_VERSION:-v0.33.0}
 KIND_URL=https://kind.sigs.k8s.io/dl/$KIND_VERSION/kind-linux-$ARCH
 install_bin kind $KIND_URL
 
