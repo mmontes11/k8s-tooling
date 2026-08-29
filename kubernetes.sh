@@ -101,7 +101,14 @@ ln -s /opt/krr/krr /usr/local/bin/krr
 rm -rf "$TMP_DIR"
 
 # # k9s
+# K9S_THEME overrides the default k9s theme when set
 source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
+if [ -n "${K9S_THEME:-}" ]; then
+  log "Setting k9s theme to '$K9S_THEME'..."
+  yq eval ".k9s.ui.skin = \"$K9S_THEME\"" --inplace "$K9S_CONFIG/config.yaml"
+else
+  log "k9s theme: '$(yq eval '.k9s.ui.skin' "$K9S_CONFIG/config.yaml")' (default)"
+fi
 
 # # krew
 sudo -u $USER bash -c 'curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash'
