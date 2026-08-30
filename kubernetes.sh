@@ -101,7 +101,8 @@ ln -s /opt/krr/krr /usr/local/bin/krr
 rm -rf "$TMP_DIR"
 
 # # k9s
-source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-scripts/main/k9s.sh) -y
+# K9S_SKIN, when set, propagates to k9s.sh and is applied there to the deployed config
+source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh) -y
 
 # # krew
 sudo -u $USER bash -c 'curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/krew.sh | bash'

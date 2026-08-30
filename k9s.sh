@@ -72,9 +72,9 @@ cp k8s-tooling/.k9s/config.yaml "$K9S_CONFIG/config.yaml"
 cp -r k8s-tooling/.k9s/skins/* "$K9S_CONFIG/skins"
 cp -r k8s-tooling/.k9s/clusters/* "$K9S_CTX/clusters"
 
-if [ -n "${K9S_THEME:-}" ]; then
-  log "Setting k9s theme to '$K9S_THEME'..."
-  yq eval ".k9s.ui.skin = \"$K9S_THEME\"" --inplace "$K9S_CONFIG/config.yaml"
+if [ -n "${K9S_SKIN:-}" ]; then
+  log "Setting k9s theme to '$K9S_SKIN'..."
+  yq eval ".k9s.ui.skin = \"$K9S_SKIN\"" --inplace "$K9S_CONFIG/config.yaml"
 else
   log "k9s theme: '$(yq eval '.k9s.ui.skin' "$K9S_CONFIG/config.yaml")' (default)"
 fi

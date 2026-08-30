@@ -57,17 +57,21 @@ curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | 
 
 ### 🎨 k9s theme
 
-By default, k9s is configured with the `nord` theme. To use a different [theme](https://github.com/derailed/k9s/tree/master/skins) (built-in or custom), set the `K9S_THEME` variable:
+By default, k9s is configured with the `nord` theme. To use a different [theme](https://github.com/derailed/k9s/tree/master/skins) (built-in or custom), set the `K9S_SKIN` variable. It works with the [k9s](#k9s) one-liner and with the [Kubernetes](#kubernetes) flavour, where it propagates to the underlying `k9s.sh`:
 
 ```bash
-curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | sudo K9S_THEME=dracula bash -s -
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | sudo K9S_SKIN=dracula bash -s -
+```
+
+```bash
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/kubernetes.sh | sudo K9S_SKIN=dracula bash -s -
 ```
 
 Or export it before running the installation (see [Override versions](#override-versions)):
 
 ```bash
-export K9S_THEME=dracula
-curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh | sudo --preserve-env bash -s -
+export K9S_SKIN=dracula
+curl -sfL https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/kubernetes.sh | sudo --preserve-env bash -s -
 ```
 
 ### 💾 Storage
