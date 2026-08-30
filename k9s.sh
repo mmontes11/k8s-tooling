@@ -59,7 +59,6 @@ install_tar k9s $K9S_URL
 
 mkdir -p "$K9S_CONFIG"
 mkdir -p "$K9S_CONFIG/skins"
-touch "$K9S_CONFIG/plugins.yaml"
 
 mkdir -p "$K9S_CTX"
 mkdir -p "$K9S_CTX/clusters"
@@ -89,10 +88,38 @@ K9S_PLUGINS=(
   # custom
   "k8s-tooling/.k9s/plugins/flux.yaml"
 )
-for PLUGIN in "${K9S_PLUGINS[@]}"; do
-  yq eval-all '. as $item ireduce ({}; . *+ $item)' \
-    --inplace "$K9S_CONFIG/plugins.yaml" "$PLUGIN"
+# Build plugins.yaml from scratch on every run. Merging into a pre-existing
+# plugins.yaml is unsafe: yq '*+' deep-merge concatenates arrays (scopes,
+# args, inputs) and comments on every re-run, and k9s v0.51+ rejects the
+# result once 'inputs' exceeds 5 entries (schema: maxItems 5).
+# Refuse to merge plugin names that collide across source files, since a
+# '*+' merge would silently concatenate the colliding plugin's arrays.
+duplicates=$(for plugin in "${K9S_PLUGINS[@]}"; do
+  yq eval '.plugins // {} | keys | .[]' -r "$plugin"
+done | sort | uniq -d)
+if [ -n "$duplicates" ]; then
+  echo "ERROR: duplicate plugin names in ${K9S_PLUGINS[*]}:"
+  echo "$duplicates"
+  exit 1
+fi
+
+tmp_plugins=$(mktemp)
+trap 'rm -f "$tmp_plugins"' EXIT
+yq eval-all '. as $item ireduce ({}; . *+ $item)' "${K9S_PLUGINS[@]}" > "$tmp_plugins"
+
+# k9s schema allows at most 5 inputs per plugin; fail early instead of
+# installing a plugins.yaml that k9s will refuse to load.
+for bad in $(yq eval '.plugins // {} | to_entries | map(select((.value.inputs // []) | length > 5) | .key) | .[]' -r "$tmp_plugins"); do
+  echo "ERROR: plugin '$bad' defines more than 5 inputs (k9s schema limit)"
+  exit 1
 done
+
+# Keep a copy of any previous plugins.yaml for inspection.
+if [ -f "$K9S_CONFIG/plugins.yaml" ] && ! cmp -s "$K9S_CONFIG/plugins.yaml" "$tmp_plugins"; then
+  mv "$K9S_CONFIG/plugins.yaml" "$K9S_CONFIG/plugins.yaml.bak"
+fi
+mv "$tmp_plugins" "$K9S_CONFIG/plugins.yaml"
+trap - EXIT
 
 # Add override: true to all plugins to prevent "duplicate plugin key found" errors
 # with built-in k9s shortcuts. See: https://github.com/derailed/k9s/issues/3886
