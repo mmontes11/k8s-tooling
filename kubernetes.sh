@@ -18,7 +18,7 @@ KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 log "Installing helm..."
-HELM_VERSION=${HELM_VERSION:-v3.21.4}
+HELM_VERSION=${HELM_VERSION:-v3.22.0}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
@@ -39,12 +39,12 @@ KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/re
 install_tar kustomize $KUSMTOMIZE_URL
 
 log "Installing kubebuilder..."
-KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.15.0}
+KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.16.0}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
 
 log "Installing clusterctl..."
-CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.14.1}
+CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.14.2}
 CLUSTERCTL_URL=https://github.com/kubernetes-sigs/cluster-api/releases/download/$CLUSTERCTL_VERSION/clusterctl-linux-$ARCH
 install_bin clusterctl $CLUSTERCTL_URL
 
@@ -69,12 +69,12 @@ CM_URL=https://github.com/cert-manager/cmctl/releases/download/$CM_VERSION/cmctl
 install_tar cmctl $CM_URL
 
 log "Installing kubeseal..."
-KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.39.1}
+KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.40.0}
 KUBESEAL_URL=https://github.com/bitnami/sealed-secrets/releases/download/v$KUBESEAL_VERSION/kubeseal-$KUBESEAL_VERSION-linux-$ARCH.tar.gz
 install_tar kubeseal $KUBESEAL_URL
 
 log "Installing vcluster..."
-VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.36.1}
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.37.0}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 

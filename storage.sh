@@ -15,7 +15,7 @@ MC_URL=https://dl.min.io/client/mc/release/linux-$ARCH/mc
 install_bin mc $MC_URL
 
 log "Installing MinIO warp..."
-WARP_VERSION=${WARP_VERSION:-v1.6.1}
+WARP_VERSION=${WARP_VERSION:-v1.7.0}
 WARP_URL=https://dl.min.io/aistor/warp/release/linux-$ARCH/archive/warp.$WARP_VERSION
 install_bin warp $WARP_URL
 
@@ -25,7 +25,7 @@ KUBESTR_URL=https://github.com/kastenhq/kubestr/releases/download/v${KUBESTR_VER
 install_tar kubestr $KUBESTR_URL
 
 log "Installing rclone..."
-RCLONE_VERSION=${RCLONE_VERSION:-v1.75.0}
+RCLONE_VERSION=${RCLONE_VERSION:-v1.75.1}
 RCLONE_URL=https://github.com/rclone/rclone/releases/download/$RCLONE_VERSION/rclone-$RCLONE_VERSION-linux-$ARCH.zip
 TMP_DIR=$(mktemp -d)
 curl -sSLo "$TMP_DIR/rclone.zip" "$RCLONE_URL"
@@ -44,7 +44,7 @@ KOPIA_URL=https://github.com/kopia/kopia/releases/download/$KOPIA_VERSION/kopia-
 install_tar kopia $KOPIA_URL kopia-${KOPIA_VERSION#v}-linux-$KOPIA_ARCH
 
 log "Installing SeaweedFS weed..."
-WEED_VERSION=${WEED_VERSION:-4.45}
+WEED_VERSION=${WEED_VERSION:-4.46}
 WEED_URL=https://github.com/seaweedfs/seaweedfs/releases/download/$WEED_VERSION/linux_$ARCH.tar.gz
 install_tar weed $WEED_URL
 
