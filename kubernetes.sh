@@ -13,12 +13,12 @@ if [ -z $ARCH ]; then
 fi
 
 log "Installing kubectl..."
-KUBECTL_VERSION=${KUBECTL_VERSION:-v1.37.0}
+KUBECTL_VERSION=${KUBECTL_VERSION:-v1.37.1}
 KUBECTL_URL=https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/$ARCH/kubectl
 install_bin kubectl $KUBECTL_URL
 
 log "Installing helm..."
-HELM_VERSION=${HELM_VERSION:-v3.21.4}
+HELM_VERSION=${HELM_VERSION:-v3.22.0}
 HELM_URL=https://get.helm.sh/helm-$HELM_VERSION-linux-$ARCH.tar.gz
 install_tar helm $HELM_URL linux-$ARCH
 
@@ -39,12 +39,12 @@ KUSMTOMIZE_URL=${KUSMTOMIZE_URL:-https://github.com/kubernetes-sigs/kustomize/re
 install_tar kustomize $KUSMTOMIZE_URL
 
 log "Installing kubebuilder..."
-KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.15.0}
+KUBEBUILDER_VERSION=${KUBEBUILDER_VERSION:-v4.16.0}
 KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/releases/download/$KUBEBUILDER_VERSION/kubebuilder_linux_$ARCH
 install_bin kubebuilder $KUBEBUILDER_URL
 
 log "Installing clusterctl..."
-CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.14.1}
+CLUSTERCTL_VERSION=${CLUSTERCTL_VERSION:-v1.14.2}
 CLUSTERCTL_URL=https://github.com/kubernetes-sigs/cluster-api/releases/download/$CLUSTERCTL_VERSION/clusterctl-linux-$ARCH
 install_bin clusterctl $CLUSTERCTL_URL
 
@@ -54,7 +54,7 @@ KUBEADM_JOIN_CONFIG_URL=https://github.com/mmontes11/k8s-bootstrap/releases/down
 install_bin kubeadm-join-config $KUBEADM_JOIN_CONFIG_URL
 
 log "Installing cilium..."
-CILIUM_VERSION=${CILIUM_VERSION:-v0.20.0}
+CILIUM_VERSION=${CILIUM_VERSION:-v0.20.1}
 CILIUM_URL=${CILIUM_URL:-https://github.com/cilium/cilium-cli/releases/download/$CILIUM_VERSION/cilium-linux-$ARCH.tar.gz}
 install_tar cilium $CILIUM_URL
 
@@ -64,22 +64,22 @@ FLUX_URL=https://github.com/fluxcd/flux2/releases/download/v${FLUX_VERSION}/flux
 install_tar flux $FLUX_URL
 
 log "Installing cmctl..."
-CM_VERSION=${CM_VERSION:-v2.5.0}
+CM_VERSION=${CM_VERSION:-v2.6.1}
 CM_URL=https://github.com/cert-manager/cmctl/releases/download/$CM_VERSION/cmctl_linux_$ARCH.tar.gz
 install_tar cmctl $CM_URL
 
 log "Installing kubeseal..."
-KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.39.1}
+KUBESEAL_VERSION=${KUBESEAL_VERSION:-0.40.0}
 KUBESEAL_URL=https://github.com/bitnami/sealed-secrets/releases/download/v$KUBESEAL_VERSION/kubeseal-$KUBESEAL_VERSION-linux-$ARCH.tar.gz
 install_tar kubeseal $KUBESEAL_URL
 
 log "Installing vcluster..."
-VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.36.1}
+VCLUSTER_VERSION=${VCLUSTER_VERSION:-v0.37.2}
 VCLUSTER_URL=https://github.com/loft-sh/vcluster/releases/download/$VCLUSTER_VERSION/vcluster-linux-$ARCH
 install_bin vcluster $VCLUSTER_URL
 
 log "Installing talosctl..."
-TALOS_VERSION=${TALOS_VERSION:-v1.14.0}
+TALOS_VERSION=${TALOS_VERSION:-v1.14.1}
 TALOS_URL=https://github.com/siderolabs/talos/releases/download/$TALOS_VERSION/talosctl-linux-$ARCH 
 install_bin talosctl $TALOS_URL
 
