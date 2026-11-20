@@ -30,6 +30,7 @@ Kurated Kubernetes tooling installable with one-liner command.
 - [rclone](https://github.com/rclone/rclone)
 - [talosctl](https://github.com/siderolabs/talos/releases)
 - [tekton](https://github.com/tektoncd/cli)
+- [trivy](https://github.com/aquasecurity/trivy)
 - [vcluster](https://github.com/loft-sh/vcluster)
 - [warp](https://github.com/minio/warp)
 - [weed (SeaweedFS)](https://github.com/seaweedfs/seaweedfs)
