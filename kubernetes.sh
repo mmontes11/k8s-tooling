@@ -100,6 +100,16 @@ mv $TMP_DIR/krr /opt
 ln -s /opt/krr/krr /usr/local/bin/krr
 rm -rf "$TMP_DIR"
 
+log "Installing trivy..."
+TRIVY_VERSION=${TRIVY_VERSION:-0.76.2}
+if [ "$ARCH" = "arm64" ]; then
+  TRIVY_ARCH=ARM64
+else
+  TRIVY_ARCH=64bit
+fi
+TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-${TRIVY_ARCH}.tar.gz
+install_tar trivy $TRIVY_URL
+
 # # k9s
 # K9S_SKIN, when set, propagates to k9s.sh and is applied there to the deployed config
 source <(curl -s https://raw.githubusercontent.com/mmontes11/k8s-tooling/main/k9s.sh) -y
