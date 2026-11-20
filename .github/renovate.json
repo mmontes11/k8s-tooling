@@ -186,6 +186,17 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
+        "/^kubernetes.sh$/"
+      ],
+      "matchStrings": [
+        "TRIVY_VERSION=\\${TRIVY_VERSION:-v?(?<currentValue>[0-9][0-9a-zA-Z.]+)}"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "aquasecurity/trivy"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
         "/^storage.sh$/"
       ],
       "matchStrings": [
